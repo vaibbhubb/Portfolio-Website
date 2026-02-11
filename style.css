@@ -9,9 +9,6 @@
 body {
     background-color: #0f0f0f;
     color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -48,6 +45,8 @@ nav {
     width: 90%;
     max-width: 1200px;
     padding: 0 20px;
+    min-height: 100vh; /* Keeps hero centered on first screen */
+    margin: 0 auto;
 }
 
 /* --- Text Content --- */
@@ -181,6 +180,108 @@ nav {
     height: auto;
     border-radius: 20px;
     filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5));
+}
+
+/* --- Hobbies Section --- */
+.hobbies-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.hobbies-inner {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.hobbies-title {
+    --fill-amount: 0%;
+    font-family: 'Gravitas One', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: clamp(5rem, 18vw, 11rem);
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: linear-gradient(
+        90deg,
+        #00d2ff 0%,
+        #00d2ff var(--fill-amount),
+        transparent var(--fill-amount),
+        transparent 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(0, 210, 255, 0.4);
+    text-stroke: 2px rgba(0, 210, 255, 0.4);
+}
+
+.hobbies-title.hobbies-full {
+    background: none;
+    color: #00d2ff;
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+}
+
+.hobby-pill {
+    position: absolute;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #0f0f0f;
+    transform: translate(-50%, -50%);
+    background: #00d2ff;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+    cursor: pointer;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hobby-pill:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.8);
+}
+
+.hobby-chess {
+    top: 25%;
+    left: 28%;
+    background: #00ff99;
+    animation-delay: 0s;
+}
+
+.hobby-math {
+    top: 35%;
+    right: 18%;
+    background: #ff8ad4;
+    animation-delay: 1s;
+}
+
+.hobby-tools {
+    bottom: 28%;
+    left: 22%;
+    background: #ffbf00;
+    animation-delay: 2s;
+}
+
+.hobby-cinema {
+    bottom: 20%;
+    right: 24%;
+    background: #7b5cff;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-12px);
+    }
 }
 
 /* --- CONNECT PAGE STYLES --- */
@@ -395,6 +496,35 @@ nav {
     
     .btn-box, .social-icons {
         justify-content: center;
+    }
+
+    /* 6. Hobbies section mobile layout */
+    .hobbies-section {
+        min-height: auto;
+        padding: 40px 16px 60px;
+    }
+
+    .hobbies-inner {
+        max-width: 100%;
+    }
+
+    .hobbies-title {
+        font-size: clamp(2.4rem, 10vw, 3.2rem);
+        letter-spacing: 0.1em;
+        margin-bottom: 24px;
+        background: none;
+        color: #00d2ff;
+        -webkit-text-stroke: 0;
+        text-stroke: 0;
+    }
+
+    .hobby-pill {
+        position: static;
+        display: inline-flex;
+        margin: 6px 6px 0;
+        transform: none;
+        animation: none;
+        box-shadow: 0 0 12px rgba(0, 210, 255, 0.4);
     }
 }
 /* --- NGL ANONYMOUS SECTION --- */
