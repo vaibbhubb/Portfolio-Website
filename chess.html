@@ -1,13 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess | Vaibbhubb</title>
+    <title>Chess Journey | Vaibbhubb</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hobby-page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+            /* Top padding to clear the fixed/absolute nav */
+        }
+
+        .hobby-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hobby-icon {
+            font-size: 3rem;
+            color: var(--primary-color, #00d2ff);
+            /* Fallback if var not defined */
+            margin-bottom: 10px;
+        }
+
+        .hobby-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hobby-header .subtitle {
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+
+        /* Specific styles for the chess text content to improve readability for long form */
+        .chess-narrative {
+            text-align: left;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .chess-narrative h2,
+        .chess-narrative h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00d2ff;
+        }
+
+        .chess-graph-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .chess-graph-img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
+
 <body>
 
     <nav>
@@ -15,59 +73,104 @@
     </nav>
 
     <div class="hobby-page-container">
+
         <div class="hobby-header">
-            <i class="fas fa-chess hobby-icon"></i>
-            <h1>Chess</h1>
+            <i class="fas fa-chess-knight hobby-icon"></i>
+            <h1>The 64 Squares</h1>
+            <p class="subtitle">My Journey to 1000 ELO</p>
         </div>
 
         <div class="hobby-content">
-            <p>
-                Chess is more than just a game to me—it's a mental battlefield where strategy meets creativity. 
-                I love the endless possibilities each position offers and the satisfaction of executing a well-thought-out plan.
-            </p>
 
-            <h3>Why I Love Chess:</h3>
-            <ul>
-                <li><strong>Strategic Thinking:</strong> Every move requires careful planning and foresight.</li>
-                <li><strong>Pattern Recognition:</strong> Understanding common patterns helps in decision-making.</li>
-                <li><strong>Mental Exercise:</strong> It keeps my mind sharp and focused.</li>
-                <li><strong>Competitive Spirit:</strong> The thrill of outsmarting an opponent is unmatched.</li>
-            </ul>
+            <div class="chess-narrative">
+                <p>
+                    I played my first game of chess on <strong>January 11, 2024</strong>. At the time, I didn't know
+                    much beyond how the pieces moved.
+                    Like any new discipline—whether it's calculus or coding—the beginning was humble. I spent the first
+                    few months just trying to understand the board,
+                    often learning the hard way through quick defeats. But the logic of the game hooked me. As a
+                    mathematics student, I found a satisfying rhythm in the tactics and the probability of the endgame.
+                </p>
 
-            <h3>My Chess Journey:</h3>
-            <p>
-                I actively play on Chess.com and enjoy analyzing games to improve my skills. 
-                Whether it's blitz, rapid, or classical, each format offers unique challenges that I find fascinating.
-            </p>
+                <h3>The Grind (and The Graph)</h3>
+                <p>
+                    If you look at my rating graph, you’ll see a long, flat plateau through most of 2024 and early 2025.
+                    This was the "grind."
+                    For nearly a year, my rating hovered without much movement. I was playing, but I wasn't necessarily
+                    seeing the board yet.
+                </p>
+                <div class="chess-graph-container">
+                    <!-- Graph image provided by the user -->
+                    <img src="images/chess_graph.png" alt="My Chess Rating Graph - A journey of plateaus then a spike"
+                        class="chess-graph-img"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <p style="display:none; color: #888; font-style: italic; margin-top: 10px;">(Graph image to be
+                        added: images/chess_graph.png)</p>
+                </div>
+                <p>
+                    It wasn't until late 2025 that things started to click. Maybe it was the discipline from my academic
+                    schedule or just the accumulation of pattern recognition, but my understanding of the game shifted.
+                    The graph spiked. I stopped just reacting to my opponent's moves and started planning my own.
+                </p>
+
+                <h3>The Milestone</h3>
+                <p>
+                    After 1,800 games and countless hours of analysis, I finally broke through the four-digit barrier,
+                    achieving a peak <strong>Rapid Rating of 1016</strong>.
+                    It might not make me a Grandmaster, but it marks the transition from a beginner to an intermediate
+                    player—a testament to consistency over raw talent.
+                </p>
+
+                <h3>Current Status</h3>
+                <p>
+                    Currently, I have put my chess hobby in <strong>sleeping mode</strong>. I'm no longer maintaining
+                    streaks or
+                    aggressively rank pushing. Instead, I play for fun occasionally, enjoying the game without the
+                    pressure of the grind.
+                </p>
+            </div>
 
             <div class="hobby-stats">
                 <div class="stat-card">
-                    <i class="fas fa-chess-board"></i>
-                    <h4>Favorite Opening</h4>
-                    <p>King's Indian Defense</p>
+                    <i class="fas fa-calendar-alt"></i>
+                    <h4>Started Playing</h4>
+                    <p>Jan 11, 2024</p>
                 </div>
-
                 <div class="stat-card">
                     <i class="fas fa-trophy"></i>
-                    <h4>Favorite Player</h4>
-                    <p>Magnus Carlsen</p>
+                    <h4>Peak Rating</h4>
+                    <p>1016 (Rapid)</p>
                 </div>
-
                 <div class="stat-card">
-                    <i class="fas fa-clock"></i>
-                    <h4>Preferred Format</h4>
-                    <p>Rapid (10+0)</p>
+                    <i class="fas fa-gamepad"></i>
+                    <h4>Total Games</h4>
+                    <p>1,778</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h4>Win/Loss/Draw</h4>
+                    <p>47% / 48% / 5%</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-medal"></i>
+                    <h4>Best Win</h4>
+                    <p>987</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-fire"></i>
+                    <h4>Best Streak</h4>
+                    <p>8</p>
                 </div>
             </div>
 
-            <a href="https://www.chess.com/member/vaibbhubb" target="_blank" class="hobby-cta">
-                <i class="fas fa-chess-pawn"></i>
-                Challenge Me on Chess.com
-            </a>
+            <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #aaa;">Still learning, one
+                blunder at a time.</p>
+
         </div>
 
         <a href="index.html#hobbies" class="back-link">← Back to Hobbies</a>
     </div>
 
 </body>
+
 </html>
