@@ -28,13 +28,16 @@ nav {
     font-size: 24px;
     font-weight: bold;
     color: #fff;
-    text-decoration: none; /* Removes the underline */
-    cursor: pointer;       /* Shows the hand icon on hover */
+    text-decoration: none;
+    /* Removes the underline */
+    cursor: pointer;
+    /* Shows the hand icon on hover */
 }
 
 
 .logo span {
-    color: #00d2ff; /* Cyan Accent */
+    color: #00d2ff;
+    /* Cyan Accent */
 }
 
 /* --- Hero Section --- */
@@ -45,7 +48,8 @@ nav {
     width: 90%;
     max-width: 1200px;
     padding: 0 20px;
-    min-height: 100vh; /* Keeps hero centered on first screen */
+    min-height: 100vh;
+    /* Keeps hero centered on first screen */
     margin: 0 auto;
 }
 
@@ -91,8 +95,15 @@ nav {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .text-content p {
@@ -105,7 +116,8 @@ nav {
 
 /* --- Buttons --- */
 .btn-box {
-    margin-top: 30px; /* Space between icons and button */
+    margin-top: 30px;
+    /* Space between icons and button */
     display: flex;
 }
 
@@ -169,7 +181,7 @@ nav {
     position: absolute;
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, rgba(0,210,255,0.4) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
     z-index: -1;
     border-radius: 50%;
 }
@@ -206,25 +218,23 @@ nav {
     font-weight: 900;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    background: linear-gradient(
-        90deg,
-        #00d2ff 0%,
-        #00d2ff var(--fill-amount),
-        transparent var(--fill-amount),
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            #00d2ff 0%,
+            #00d2ff var(--fill-amount),
+            transparent var(--fill-amount),
+            transparent 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-stroke: 2px rgba(0, 210, 255, 0.4);
-    text-stroke: 2px rgba(0, 210, 255, 0.4);
+
 }
 
 .hobbies-title.hobbies-full {
     background: none;
     color: #00d2ff;
     -webkit-text-stroke: 0;
-    text-stroke: 0;
+
 }
 
 .hobby-pill {
@@ -248,37 +258,49 @@ nav {
 }
 
 .hobby-chess {
-    top: 25%;
-    left: 28%;
+    top: 18%;
+    left: 12%;
     background: #00ff99;
     animation-delay: 0s;
 }
 
 .hobby-math {
-    top: 35%;
-    right: 18%;
+    top: 22%;
+    right: 12%;
     background: #ff8ad4;
     animation-delay: 1s;
 }
 
 .hobby-tools {
-    bottom: 28%;
-    left: 22%;
+    bottom: 15%;
+    left: 50%;
     background: #ffbf00;
     animation-delay: 2s;
 }
 
 .hobby-cinema {
-    bottom: 20%;
-    right: 24%;
+    bottom: 25%;
+    right: 18%;
     background: #7b5cff;
     animation-delay: 3s;
 }
 
+.hobby-reading {
+    top: 50%;
+    left: 10%;
+    background: #ff3b3b;
+    /* Red color as requested */
+    animation-delay: 4s;
+    color: #fff;
+}
+
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(-50%, -50%) translateY(0);
     }
+
     50% {
         transform: translate(-50%, -50%) translateY(-12px);
     }
@@ -288,7 +310,8 @@ nav {
 .connect-container {
     width: 90%;
     max-width: 900px;
-    margin: 80px auto; /* More margin top for navbar space */
+    margin: 80px auto;
+    /* More margin top for navbar space */
     text-align: center;
 }
 
@@ -298,7 +321,9 @@ nav {
     margin-bottom: 40px;
 }
 
-.connect-heading span { color: #00d2ff; }
+.connect-heading span {
+    color: #00d2ff;
+}
 
 /* Urgent Box */
 .urgent-box {
@@ -331,8 +356,16 @@ nav {
     font-weight: 500;
     transition: 0.3s;
 }
-.urgent-link i { font-size: 24px; color: #00d2ff; }
-.urgent-link:hover { color: #00d2ff; transform: translateY(-2px); }
+
+.urgent-link i {
+    font-size: 24px;
+    color: #00d2ff;
+}
+
+.urgent-link:hover {
+    color: #00d2ff;
+    transform: translateY(-2px);
+}
 
 /* Split Cards Section */
 .split-section {
@@ -354,8 +387,13 @@ nav {
 }
 
 /* Card Colors */
-.category-card.pro { border-top-color: #00d2ff; }
-.category-card.casual { border-top-color: #ff007f; }
+.category-card.pro {
+    border-top-color: #00d2ff;
+}
+
+.category-card.casual {
+    border-top-color: #ff007f;
+}
 
 .category-card h3 {
     font-size: 24px;
@@ -398,7 +436,9 @@ nav {
     transition: all 0.3s ease;
 }
 
-.social-box i { font-size: 22px; }
+.social-box i {
+    font-size: 22px;
+}
 
 .social-box:hover {
     transform: translateY(-3px);
@@ -406,28 +446,63 @@ nav {
 }
 
 /* Brand Colors on Hover/Icon */
-.sb-linkedin i { color: #0077b5; }
-.sb-linkedin:hover { border-color: #0077b5; box-shadow: 0 0 10px rgba(0, 119, 181, 0.2); }
+.sb-linkedin i {
+    color: #0077b5;
+}
 
-.sb-github i { color: #ffffff; }
-.sb-github:hover { border-color: #ffffff; box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+.sb-linkedin:hover {
+    border-color: #0077b5;
+    box-shadow: 0 0 10px rgba(0, 119, 181, 0.2);
+}
 
-.sb-insta i { 
+.sb-github i {
+    color: #ffffff;
+}
+
+.sb-github:hover {
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.sb-insta i {
     background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.sb-insta:hover { border-color: #d62976; box-shadow: 0 0 10px rgba(214, 41, 118, 0.2); }
 
-.sb-telegram i { color: #0088cc; }
-.sb-telegram:hover { border-color: #0088cc; box-shadow: 0 0 10px rgba(0, 136, 204, 0.2); }
+.sb-insta:hover {
+    border-color: #d62976;
+    box-shadow: 0 0 10px rgba(214, 41, 118, 0.2);
+}
 
-.sb-snapchat i { color: #FFFC00; text-shadow: 0 0 2px rgba(255, 252, 0, 0.5); }
-.sb-snapchat:hover { border-color: #FFFC00; box-shadow: 0 0 10px rgba(255, 252, 0, 0.2); }
+.sb-telegram i {
+    color: #0088cc;
+}
 
-.sb-chess i { color: #7fa650; }
-.sb-chess:hover { border-color: #7fa650; box-shadow: 0 0 10px rgba(127, 166, 80, 0.2); }
+.sb-telegram:hover {
+    border-color: #0088cc;
+    box-shadow: 0 0 10px rgba(0, 136, 204, 0.2);
+}
+
+.sb-snapchat i {
+    color: #FFFC00;
+    text-shadow: 0 0 2px rgba(255, 252, 0, 0.5);
+}
+
+.sb-snapchat:hover {
+    border-color: #FFFC00;
+    box-shadow: 0 0 10px rgba(255, 252, 0, 0.2);
+}
+
+.sb-chess i {
+    color: #7fa650;
+}
+
+.sb-chess:hover {
+    border-color: #7fa650;
+    box-shadow: 0 0 10px rgba(127, 166, 80, 0.2);
+}
 
 .back-home {
     display: inline-block;
@@ -436,7 +511,10 @@ nav {
     text-decoration: none;
     font-size: 14px;
 }
-.back-home:hover { color: #fff; }
+
+.back-home:hover {
+    color: #fff;
+}
 
 /* Responsive */
 
@@ -444,13 +522,15 @@ nav {
 /* --- Responsive Design (Mobile Improvements) --- */
 /* --- MOBILE FIXES (Final Correct Version) --- */
 @media (max-width: 768px) {
-    
+
     /* 1. CRITICAL FIX: Stack elements vertically (Column) instead of side-by-side */
     body {
         flex-direction: column;
-        justify-content: flex-start; /* Starts from top */
+        justify-content: flex-start;
+        /* Starts from top */
         padding-top: 0;
-        height: auto; /* Allows scrolling if content is long */
+        height: auto;
+        /* Allows scrolling if content is long */
     }
 
     /* 2. Navbar Adjustment */
@@ -464,7 +544,8 @@ nav {
 
     /* 3. Hero Section Adjustment */
     .hero-container {
-        flex-direction: column-reverse; /* Image Top, Text Bottom */
+        flex-direction: column-reverse;
+        /* Image Top, Text Bottom */
         padding-top: 0;
         margin-bottom: 40px;
     }
@@ -473,7 +554,7 @@ nav {
     .image-content img {
         max-width: 250px;
     }
-    
+
     .image-bg-glow {
         width: 220px;
         height: 220px;
@@ -490,11 +571,12 @@ nav {
     }
 
     .text-content h3 {
-        font-size: 18px; 
+        font-size: 18px;
         white-space: nowrap;
     }
-    
-    .btn-box, .social-icons {
+
+    .btn-box,
+    .social-icons {
         justify-content: center;
     }
 
@@ -515,7 +597,7 @@ nav {
         background: none;
         color: #00d2ff;
         -webkit-text-stroke: 0;
-        text-stroke: 0;
+
     }
 
     .hobby-pill {
@@ -527,13 +609,15 @@ nav {
         box-shadow: 0 0 12px rgba(0, 210, 255, 0.4);
     }
 }
+
 /* --- NGL ANONYMOUS SECTION --- */
 .ngl-container {
     margin-top: 40px;
     padding: 30px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
-    border: 1px solid rgba(255, 0, 80, 0.3); /* NGL Pink Border */
+    border: 1px solid rgba(255, 0, 80, 0.3);
+    /* NGL Pink Border */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -562,14 +646,156 @@ nav {
     font-size: 18px;
     font-weight: 700;
     color: white;
-    
+
     /* NGL Signature Gradient */
     background: linear-gradient(45deg, #ff0050, #fc00ff);
     box-shadow: 0 5px 15px rgba(255, 0, 80, 0.4);
     transition: 0.3s;
 }
 
+
 .ngl-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(255, 0, 80, 0.6);
+}
+
+/* --- MOVIE LIST STYLES (Cinephilia Page) --- */
+.movie-list-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 100px auto 50px;
+    /* Top margin for navbar */
+    padding: 0 20px;
+}
+
+.page-heading {
+    font-size: 24px;
+    margin-bottom: 40px;
+    text-align: center;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+.movie-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.movie-item {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: #00d2ff;
+}
+
+.movie-poster {
+    flex-shrink: 0;
+    width: 150px;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.movie-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.movie-details h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.movie-type {
+    font-size: 14px;
+    color: #00d2ff;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.movie-details p {
+    font-size: 15px;
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* Mobile Responsiveness for Movie List */
+@media (max-width: 600px) {
+    .movie-item {
+        flex-direction: column;
+    }
+
+    .movie-poster {
+        width: 100%;
+        height: 250px;
+        /* Limit height for poster area */
+    }
+
+    .movie-details h2 {
+        font-size: 20px;
+    }
+}
+
+/* --- BACK BUTTON (Cinephilia) --- */
+.back-link-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 50px 0 80px;
+    /* ample space below */
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 40px;
+    background: transparent;
+    border: 2px solid #00d2ff;
+    border-radius: 50px;
+    color: #00d2ff;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
+}
+
+.back-link i {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover {
+    background: #00d2ff;
+    color: #0f0f0f;
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.6);
+    transform: translateY(-3px);
+}
+
+.back-link:hover i {
+    transform: translateX(-5px);
 }
