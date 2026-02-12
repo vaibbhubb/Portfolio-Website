@@ -11,18 +11,35 @@ body {
     color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
+    animation: blurIn 0.8s ease-out forwards;
 }
+
+@keyframes blurIn {
+    0% {
+        filter: blur(10px);
+        opacity: 0;
+    }
+
+    100% {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
 
 /* --- Navbar --- */
 nav {
-    position: absolute;
-    top: 0;
+    position: relative;
     width: 100%;
-    padding: 20px 50px;
+    padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #0f0f0f;
+    z-index: 1000;
 }
+
+
 
 .logo {
     font-size: 24px;
@@ -32,6 +49,8 @@ nav {
     /* Removes the underline */
     cursor: pointer;
     /* Shows the hand icon on hover */
+    white-space: nowrap;
+
 }
 
 
@@ -323,8 +342,10 @@ nav {
 .connect-container {
     width: 90%;
     max-width: 900px;
-    margin: 80px auto;
-    /* More margin top for navbar space */
+    max-width: 900px;
+    margin: 40px auto;
+    /* Reduced margin as nav is relative */
+
     text-align: center;
 }
 
@@ -553,7 +574,10 @@ nav {
         padding: 20px 0;
         justify-content: center;
         margin-bottom: 10px;
+        left: auto;
+        transform: none;
     }
+
 
     /* 3. Hero Section Adjustment */
     .hero-container {
@@ -667,7 +691,26 @@ nav {
     width: 100%;
     min-height: 300px;
     /* Ensure iframe has space */
+    background: linear-gradient(-45deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    background-size: 200% 200%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 10px;
 }
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 
 .form-container:hover {
@@ -686,8 +729,10 @@ nav {
 .movie-list-container {
     width: 90%;
     max-width: 1000px;
-    margin: 100px auto 50px;
-    /* Top margin for navbar */
+    max-width: 1000px;
+    margin: 40px auto 50px;
+    /* Reduced top margin */
+
     padding: 0 20px;
 }
 
