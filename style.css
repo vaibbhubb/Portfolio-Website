@@ -194,6 +194,19 @@ nav {
     filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5));
 }
 
+
+@keyframes float {
+
+    0%,
+    100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -12px;
+    }
+}
+
 /* --- Hobbies Section --- */
 .hobbies-section {
     width: 100%;
@@ -202,6 +215,8 @@ nav {
     align-items: center;
     justify-content: center;
     padding: 0 20px;
+    position: relative;
+    /* Ensure z-index works if needed */
 }
 
 .hobbies-inner {
@@ -209,9 +224,15 @@ nav {
     width: 100%;
     max-width: 1200px;
     text-align: center;
+    height: 600px;
+    /* Give it height for absolute positioning to work relative to */
 }
 
 .hobbies-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     --fill-amount: 0%;
     font-family: 'Gravitas One', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: clamp(5rem, 18vw, 11rem);
@@ -227,21 +248,22 @@ nav {
     background-clip: text;
     color: transparent;
     -webkit-text-stroke: 2px rgba(0, 210, 255, 0.4);
-
+    width: 100%;
+    text-align: center;
+    z-index: 0;
 }
 
 .hobbies-title.hobbies-full {
     background: none;
     color: #00d2ff;
     -webkit-text-stroke: 0;
-
 }
 
 .hobby-pill {
     position: absolute;
-    padding: 10px 22px;
+    padding: 12px 24px;
     border-radius: 999px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     white-space: nowrap;
     color: #0f0f0f;
@@ -250,37 +272,40 @@ nav {
     box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
     cursor: pointer;
     animation: float 6s ease-in-out infinite;
+    text-decoration: none;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hobby-pill:hover {
-    transform: translate(-50%, -50%) scale(1.05);
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.8);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.8);
 }
 
 .hobby-chess {
-    top: 18%;
-    left: 12%;
+    top: 28%;
+    left: 20%;
     background: #00ff99;
     animation-delay: 0s;
 }
 
 .hobby-math {
-    top: 22%;
-    right: 12%;
+    top: 28%;
+    right: 20%;
     background: #ff8ad4;
     animation-delay: 1s;
 }
 
 .hobby-tools {
-    bottom: 15%;
+    bottom: 25%;
     left: 50%;
     background: #ffbf00;
     animation-delay: 2s;
 }
 
 .hobby-cinema {
-    bottom: 25%;
-    right: 18%;
+    bottom: 30%;
+    right: 25%;
     background: #7b5cff;
     animation-delay: 3s;
 }
@@ -292,18 +317,6 @@ nav {
     /* Red color as requested */
     animation-delay: 4s;
     color: #fff;
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translate(-50%, -50%) translateY(0);
-    }
-
-    50% {
-        transform: translate(-50%, -50%) translateY(-12px);
-    }
 }
 
 /* --- CONNECT PAGE STYLES --- */
@@ -584,29 +597,49 @@ nav {
     .hobbies-section {
         min-height: auto;
         padding: 40px 16px 60px;
+        align-items: flex-start;
+        /* Align to top on mobile */
     }
 
     .hobbies-inner {
         max-width: 100%;
+        height: auto;
+        /* Reset fixed height */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
 
     .hobbies-title {
+        position: static;
+        /* Reset absolute positioning */
+        transform: none;
+        width: auto;
         font-size: clamp(2.4rem, 10vw, 3.2rem);
         letter-spacing: 0.1em;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         background: none;
         color: #00d2ff;
         -webkit-text-stroke: 0;
-
     }
 
     .hobby-pill {
         position: static;
         display: inline-flex;
-        margin: 6px 6px 0;
-        transform: none;
+        transform: none !important;
+        /* Force reset including hover */
         animation: none;
-        box-shadow: 0 0 12px rgba(0, 210, 255, 0.4);
+        margin: 5px;
+        width: 80%;
+        /* Make them wide buttons on mobile for easier tapping */
+        justify-content: center;
+        max-width: 300px;
+    }
+
+    .hobby-pill:hover {
+        transform: scale(1.02) !important;
+        /* Subtle scale on mobile touch */
     }
 }
 
