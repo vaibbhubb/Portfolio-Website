@@ -8,6 +8,111 @@
     <title>Tool Experimentation | Vaibbhubb</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Specific Styles for Tools Page - inherited from Math page structure */
+        .tools-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 100px auto 50px;
+            padding: 0 20px;
+        }
+
+        .tools-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .tools-image-wrapper {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .tools-image-wrapper img {
+            max-width: 100%;
+            width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .tools-image-wrapper img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.4);
+        }
+
+        .tools-content-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tools-content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ffbf00, #ff007f);
+            /* Amber to Pink gradient */
+        }
+
+        .tools-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .tools-text strong {
+            color: #ffbf00;
+            /* Amber accent */
+        }
+
+        .tools-text span.highlight {
+            color: #00d2ff;
+            font-weight: 500;
+        }
+
+        .aesthetic-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .tools-hero h1 {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -16,54 +121,53 @@
         <a href="index.html" class="logo">vaibbhubb<span>.in</span></a>
     </nav>
 
-    <div class="hobby-page-container">
-        <div class="hobby-header">
-            <i class="fas fa-flask hobby-icon"></i>
-            <h1>Tool Experimentation</h1>
+    <div class="tools-container">
+
+        <div class="tools-hero">
+            <div class="tools-image-wrapper">
+                <!-- Using a tech/setup aesthetic image -->
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop"
+                    alt="Tech Aesthetic">
+            </div>
+            <h1 style="font-size: 3rem; margin-bottom: 10px;">The Evolution of <span style="color: #ffbf00;">Tech</span>
+            </h1>
+            <p style="color: #888; font-size: 1.2rem;">My journey through the digital landscape</p>
         </div>
 
-        <div class="hobby-content">
-            <p>
-                I love exploring new technologies, software, and tools. There's something exciting about
-                discovering a new app or framework that can optimize workflows or solve problems in innovative ways.
+        <div class="tools-content-card">
+            <p class="tools-text">
+                I have always been deeply fascinated by technology and its multifaceted nature. Born in
+                <strong>2006</strong>, I belong to a generation that didn't just witness the digital revolution—we were
+                born into it. From the early days of bulky desktops to the sleek, AI-integrated era we live in today, I
+                have evolved alongside tech, watching it grow, adapt, and transform the world around us. This lifelong
+                exposure has sparked an <span class="highlight">insatiable curiosity</span> in me to understand not just
+                how to use tools, but how they work fundamentally.
             </p>
-
-            <h3>What I Explore:</h3>
-            <ul>
-                <li><strong>Productivity Tools:</strong> Apps that enhance efficiency and organization.</li>
-                <li><strong>Developer Tools:</strong> IDEs, frameworks, and libraries for coding.</li>
-                <li><strong>AI & Automation:</strong> Experimenting with ChatGPT, automation scripts, and AI tools.</li>
-                <li><strong>Data Tools:</strong> Visualization platforms, analytics software, and databases.</li>
-            </ul>
-
-            <h3>Current Experiments:</h3>
-            <p>
-                I'm always testing new platforms and technologies. Whether it's a new VS Code extension,
-                a data visualization library, or an AI-powered assistant, I enjoy learning by doing.
+            <p class="tools-text">
+                In fact, the inception of this very website is a testament to that journey. It all started with a simple
+                observation: seeing others use <strong>Linktree</strong> pages to consolidate their online presence.
+                Inspired, I created my own, but my ambition quickly outgrew the template's limitations. I wanted
+                something more personal, more expressive—a true digital home. Driven by the desire to have a
+                <strong>portfolio website</strong> that stood out like the ones I admired, I embarked on learning web
+                development, and hence, here I am, sharing my corner of the internet with you.
             </p>
+        </div>
 
-            <div class="hobby-stats">
-                <div class="stat-card">
-                    <i class="fas fa-code"></i>
-                    <h4>Favorite Category</h4>
-                    <p>Developer Tools</p>
-                </div>
-
-                <div class="stat-card">
-                    <i class="fas fa-rocket"></i>
-                    <h4>Learning Method</h4>
-                    <p>Hands-On Testing</p>
-                </div>
-
-                <div class="stat-card">
-                    <i class="fas fa-lightbulb"></i>
-                    <h4>Goal</h4>
-                    <p>Process Optimization</p>
-                </div>
+        <div class="aesthetic-gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop"
+                    alt="Cyberpunk Aesthetic">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop"
+                    alt="Coding Setup">
             </div>
         </div>
 
-        <a href="index.html#hobbies" class="back-link">← Back to Hobbies</a>
+        <a href="index.html#hobbies" class="back-link"
+            style="text-align: center; display: inline-flex; margin-top: 60px; position: relative; left: 50%; transform: translateX(-50%);">
+            <i class="fas fa-arrow-left" style="margin-right: 10px;"></i> Back to Hobbies
+        </a>
     </div>
 
 </body>
