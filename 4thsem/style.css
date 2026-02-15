@@ -137,13 +137,40 @@ body {
 }
 
 .pyq-section,
-.assignments-section {
+.assignments-section,
+.faq-section {
     background: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    flex: 1;
+}
+
+/* FAQ Specific Styles */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-question {
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.faq-answer {
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 /* Resource Links */
@@ -276,7 +303,8 @@ body {
     /* Simplify section styling on mobile */
     .syllabus-section,
     .pyq-section,
-    .assignments-section {
+    .assignments-section,
+    .faq-section {
         padding: 0;
         /* Remove container padding so it looks like a single button */
         border-radius: 10px;
@@ -446,5 +474,41 @@ body {
             opacity: 1;
             transform: translateY(0);
         }
+    }
+
+    /* FAQ Accordion Mobile Styles */
+    .faq-question {
+        cursor: pointer;
+        position: relative;
+        padding-right: 25px;
+        /* Space for icon */
+        user-select: none;
+    }
+
+    .faq-question::after {
+        content: '\f078';
+        /* fa-chevron-down */
+        font-family: 'Font Awesome 6 Free';
+        /* Updated to 6 matching head link */
+        font-weight: 900;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+        color: var(--primary-color);
+    }
+
+    .faq-question.active::after {
+        transform: rotate(180deg);
+    }
+
+    /* Hide answers by default on mobile */
+    .faq-answer {
+        display: none;
+        padding-top: 10px;
+        margin-top: 5px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        color: #ddd;
     }
 }

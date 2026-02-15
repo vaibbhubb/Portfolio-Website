@@ -37,4 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // FAQ Accordion (Mobile Only - 600px matches CSS)
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            if (window.innerWidth <= 600) {
+                toggleAccordion(question);
+            }
+        });
+    });
 });
