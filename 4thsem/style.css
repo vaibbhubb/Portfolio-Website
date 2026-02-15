@@ -71,6 +71,11 @@ body {
     /* Custom accent for this page */
 }
 
+/* Hide mobile icons on desktop */
+.mobile-icon {
+    display: none !important;
+}
+
 /* Grid Layout */
 .grid-container {
     display: grid;
@@ -80,7 +85,7 @@ body {
     margin-top: 40px;
 }
 
-/* Syllabus Section (Left Column) */
+/* Syllabus Section (Left Column on PC) */
 .syllabus-section {
     grid-column: 1 / 2;
     background: var(--card-bg);
@@ -224,8 +229,8 @@ body {
     box-shadow: 0 0 20px rgba(0, 250, 154, 0.4);
 }
 
-/* Mobile & Tablet Responsive - More aggressive breakpoint */
-@media (max-width: 1024px) {
+/* Mobile & Tablet Responsive - Reverted breakpoint to 600px for safety */
+@media (max-width: 600px) {
     .page-container {
         padding: 12px;
     }
@@ -234,8 +239,19 @@ body {
         display: flex;
         flex-direction: column;
         /* Robustly forces vertical stacking */
-        gap: 25px;
+        gap: 20px;
         margin-top: 15px;
+    }
+
+    .right-column {
+        gap: 20px;
+        /* Equalized gap matches grid-container for symmetry */
+    }
+
+    /* Reset grid columns on mobile to ensure proper stacking */
+    .syllabus-section,
+    .right-column {
+        grid-column: auto;
     }
 
     .nav-link-home {
@@ -261,15 +277,28 @@ body {
     .syllabus-section,
     .pyq-section,
     .assignments-section {
-        padding: 20px;
+        padding: 0;
+        /* Remove container padding so it looks like a single button */
         border-radius: 10px;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: none;
+        /* Shadow should be on the header button itself now */
+        background: transparent;
+        /* Remove background */
+        flex: none;
+        /* Reset desktop flex-grow */
+        height: auto;
+        /* Ensure natural height */
     }
 
     .section-title {
         font-size: 1.6rem;
-        margin-bottom: 20px;
+        margin-bottom: 0;
+        /* No margin below title when collapsed */
         letter-spacing: 1px;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        /* Add shadow to the button */
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     /* Clean up sub-sections - remove heavy borders */
@@ -319,15 +348,103 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+/* Mobile Accordion Styles - ONLY for Phone */
+@media (max-width: 600px) {
 
-    /* Further tweaks for very small screens */
-    .logo {
-        font-size: 22px;
+    /* Show icons on mobile */
+    .mobile-icon {
+        display: block !important;
     }
 
-    .btn-action {
-        flex: 100%;
-        /* Stack buttons on very small screens if needed, or keep 50% */
+    /* Accordion Header Styles */
+    .section-title,
+    .sub-title {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* Ensure title looks clickable */
+        background: rgba(255, 255, 255, 0.05);
+        /* Subtle background for touch target */
+        padding: 15px;
+        border-radius: 8px;
+        transition: background 0.2s;
+    }
+
+    .section-title:active,
+    .sub-title:active {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-icon {
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    /* Rotate icon when active */
+    .section-title.active .mobile-icon,
+    .sub-title.active .mobile-icon {
+        transform: rotate(180deg);
+    }
+
+    /* Hidden content by default on mobile */
+    .syllabus-content,
+    .section-content,
+    .sub-section .resource-list {
+        display: none;
+        padding-top: 15px;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    /* Sub-section specific: default resource-list hidden? 
+       Wait, user said: "Clicking Syllabus will reveal Major, Minor, Vocational. Clicking Major will reveal the subjects."
+       So:
+       1. .syllabus-content (contains Major div, Minor div...) -> Hidden by default.
+       2. Inside Major div (.sub-section), the .resource-list -> Hidden by default. 
+       
+       Let's target specifically:
+    */
+
+    .syllabus-content {
+        display: none;
+    }
+
+    .section-content {
+        display: none;
+    }
+
+    /* For Level 2 (Major, Minor...) */
+    .sub-section .resource-list {
+        display: none;
+        margin-top: 15px;
+    }
+
+    /* Ensure Major/Minor container is visible when Syllabus opens, 
+       but its list is hidden until clicked */
+    .sub-section {
+        background: transparent;
+        /* Remove bg to blend with accordion feel */
+        padding: 0;
+        /* Let headers take padding */
+        border: none;
+        margin-bottom: 10px;
+    }
+
+    .sub-title {
+        background: rgba(255, 255, 255, 0.03);
+        margin-bottom: 5px;
+        border-left: 3px solid var(--primary-color);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
