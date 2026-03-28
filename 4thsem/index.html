@@ -7,6 +7,7 @@
     <title>4th Semester Resources | Vaibbhubb</title>
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,287 +23,299 @@
     </div>
 
     <div class="page-container">
-
         <div class="grid-container">
 
-            <!-- Left Column: Syllabus -->
-            <div class="syllabus-section">
-                <h2 class="section-title">Syllabus <i class="fas fa-chevron-down mobile-icon"></i></h2>
+            <!-- LEFT COLUMN: Syllabus + Assignments -->
+            <div class="column">
 
-                <div class="syllabus-content">
-                    <!-- Major -->
-                    <div class="sub-section">
-                        <h3 class="sub-title">Major <i class="fas fa-chevron-down mobile-icon"></i></h3>
-                        <ul class="resource-list">
-                            <li class="resource-item">
-                                <span class="subject-name">Mathematics</span>
-                                <span class="course-title">Differential Equations</span>
-                                <div class="action-buttons">
-                                    <a href="maths-syllabus.pdf" target="_blank" class="btn-action btn-view">View</a>
-                                    <a href="maths-syllabus.pdf" download class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                            <li class="resource-item">
-                                <span class="subject-name">Physics</span>
-                                <span class="course-title">Geometrical Optics</span>
-                                <div class="action-buttons">
-                                    <a href="physics-syllabus.pdf" target="_blank" class="btn-action btn-view">View</a>
-                                    <a href="physics-syllabus.pdf" download class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                            <li class="resource-item">
-                                <span class="subject-name">Zoology</span>
-                                <span class="course-title">Microbiology and Animal Behaviour</span>
-                                <div class="action-buttons">
-                                    <a href="zoology-syllabus.pdf" target="_blank" class="btn-action btn-view">View</a>
-                                    <a href="zoology-syllabus.pdf" download class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                            <li class="resource-item">
-                                <span class="subject-name">Botany</span>
-                                <span class="course-title">Cytogenetics and Plant Breeding</span>
-                                <div class="action-buttons">
-                                    <a href="botany-syllabus.pdf" target="_blank" class="btn-action btn-view">View</a>
-                                    <a href="botany-syllabus.pdf" download class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                            <li class="resource-item">
-                                <span class="subject-name">Chemistry</span>
-                                <span class="course-title">General Chemistry 2</span>
-                                <div class="action-buttons">
-                                    <a href="chemistry-syllabus.pdf" target="_blank"
-                                        class="btn-action btn-view">View</a>
-                                    <a href="chemistry-syllabus.pdf" download
-                                        class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                            <li class="resource-item">
-                                <span class="subject-name">Statistics</span>
-                                <span class="course-title">Sampling Techniques & Analysis of Variance</span>
-                                <div class="action-buttons">
-                                    <a href="statistics-syllabus.pdf" target="_blank"
-                                        class="btn-action btn-view">View</a>
-                                    <a href="statistics-syllabus.pdf" download
-                                        class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                        </ul>
+                <!-- Syllabus Section -->
+                <div class="section-card" id="section-syllabus">
+                    <h2 class="section-title">
+                        <span><i class="fas fa-book-open section-icon"></i> Syllabus</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </h2>
+                    <div class="section-body">
+                        <!-- Major -->
+                        <div class="sub-section sub-major">
+                            <h3 class="sub-title">
+                                <span>Major</span>
+                                <i class="fas fa-chevron-down accordion-icon"></i>
+                            </h3>
+                            <ul class="resource-list">
+                                <li class="resource-item">
+                                    <span class="subject-name">Mathematics</span>
+                                    <span class="course-title">Differential Equations</span>
+                                    <div class="action-buttons">
+                                        <a href="maths-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="maths-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                                <li class="resource-item">
+                                    <span class="subject-name">Physics</span>
+                                    <span class="course-title">Geometrical Optics</span>
+                                    <div class="action-buttons">
+                                        <a href="physics-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="physics-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                                <li class="resource-item">
+                                    <span class="subject-name">Zoology</span>
+                                    <span class="course-title">Microbiology and Animal Behaviour</span>
+                                    <div class="action-buttons">
+                                        <a href="zoology-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="zoology-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                                <li class="resource-item">
+                                    <span class="subject-name">Botany</span>
+                                    <span class="course-title">Cytogenetics and Plant Breeding</span>
+                                    <div class="action-buttons">
+                                        <a href="botany-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="botany-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                                <li class="resource-item">
+                                    <span class="subject-name">Chemistry</span>
+                                    <span class="course-title">General Chemistry 2</span>
+                                    <div class="action-buttons">
+                                        <a href="chemistry-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="chemistry-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                                <li class="resource-item">
+                                    <span class="subject-name">Statistics</span>
+                                    <span class="course-title">Sampling Techniques &amp; Analysis of Variance</span>
+                                    <div class="action-buttons">
+                                        <a href="statistics-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="statistics-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Minor -->
+                        <div class="sub-section sub-minor">
+                            <h3 class="sub-title">
+                                <span>Minor</span>
+                                <i class="fas fa-chevron-down accordion-icon"></i>
+                            </h3>
+                            <ul class="resource-list">
+                                <li class="resource-item">
+                                    <span class="subject-name">English</span>
+                                    <span class="course-title">Professional Communication in English</span>
+                                    <div class="action-buttons">
+                                        <a href="english-minor-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="english-minor-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                                <li class="resource-item">
+                                    <span class="subject-name">Hindi</span>
+                                    <span class="course-title">हिंदी भाषा स्वरूप (राजभाषा, राष्ट्रभाषा, मानक भाषा)</span>
+                                    <div class="action-buttons">
+                                        <a href="hindi-minor-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="hindi-minor-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                                <li class="resource-item">
+                                    <span class="subject-name">Zoology</span>
+                                    <span class="course-title">Bioinstrumentation, Bioinformatics and Biostatistics</span>
+                                    <div class="action-buttons">
+                                        <a href="zoology-minor-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="zoology-minor-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Skill Vocational -->
+                        <div class="sub-section sub-vocational">
+                            <h3 class="sub-title">
+                                <span>Skill Vocational</span>
+                                <i class="fas fa-chevron-down accordion-icon"></i>
+                            </h3>
+                            <ul class="resource-list">
+                                <li class="resource-item">
+                                    <span class="subject-name">Physics</span>
+                                    <span class="course-title">Basic Instrumentation Skills 4</span>
+                                    <div class="action-buttons">
+                                        <a href="physics-skill-vocational-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="physics-skill-vocational-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                                <li class="resource-item">
+                                    <span class="subject-name">Chemistry</span>
+                                    <span class="course-title">Chemistry of Skin Care Products</span>
+                                    <div class="action-buttons">
+                                        <a href="chemistry-skill-vocational-syllabus.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="chemistry-skill-vocational-syllabus.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Minor -->
-                    <div class="sub-section">
-                        <h3 class="sub-title">Minor <i class="fas fa-chevron-down mobile-icon"></i></h3>
-                        <ul class="resource-list">
-                            <li class="resource-item">
-                                <span class="subject-name">English</span>
-                                <span class="course-title">Professional Communication in English</span>
-                                <div class="action-buttons">
-                                    <a href="english-minor-syllabus.pdf" target="_blank"
-                                        class="btn-action btn-view">View</a>
-                                    <a href="english-minor-syllabus.pdf" download
-                                        class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                            <li class="resource-item">
-                                <span class="subject-name">Hindi</span>
-                                <span class="course-title">हिंदी भाषा स्वरूप (राजभाषा, राष्ट्रभाषा, मानक भाषा)</span>
-                                <div class="action-buttons">
-                                    <a href="hindi-minor-syllabus.pdf" target="_blank"
-                                        class="btn-action btn-view">View</a>
-                                    <a href="hindi-minor-syllabus.pdf" download
-                                        class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                            <li class="resource-item">
-                                <span class="subject-name">Zoology</span>
-                                <span class="course-title">Bioinstrumentation, Bioinformatics and Biostatistics</span>
-                                <div class="action-buttons">
-                                    <a href="zoology-minor-syllabus.pdf" target="_blank"
-                                        class="btn-action btn-view">View</a>
-                                    <a href="zoology-minor-syllabus.pdf" download
-                                        class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+            </div> <!-- End left column -->
 
-                    <!-- Vocational -->
-                    <div class="sub-section">
-                        <h3 class="sub-title">Skill Vocational <i class="fas fa-chevron-down mobile-icon"></i></h3>
-                        <ul class="resource-list">
-                            <li class="resource-item">
-                                <span class="subject-name">Physics</span>
-                                <span class="course-title">Basic Instrumentation Skills 4</span>
-                                <div class="action-buttons">
-                                    <a href="physics-skill-vocational-syllabus.pdf" target="_blank"
-                                        class="btn-action btn-view">View</a>
-                                    <a href="physics-skill-vocational-syllabus.pdf" download
-                                        class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                            <li class="resource-item">
-                                <span class="subject-name">Chemistry</span>
-                                <span class="course-title">Chemistry of Skin Care Products</span>
-                                <div class="action-buttons">
-                                    <a href="chemistry-skill-vocational-syllabus.pdf" target="_blank"
-                                        class="btn-action btn-view">View</a>
-                                    <a href="chemistry-skill-vocational-syllabus.pdf" download
-                                        class="btn-action btn-download">Download</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div> <!-- End syllabus-content -->
-
-            </div> <!-- End syllabus-section -->
-
-            <!-- Right Column -->
-            <div class="right-column">
+            <!-- RIGHT COLUMN: PYQ + FAQ -->
+            <div class="column">
 
                 <!-- PYQ Section -->
-                <div class="pyq-section">
-                    <h2 class="section-title">PYQ <i class="fas fa-chevron-down mobile-icon"></i></h2>
-                    <div class="section-content">
-
+                <div class="section-card" id="section-pyq">
+                    <h2 class="section-title">
+                        <span><i class="fas fa-file-alt section-icon"></i> PYQ</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </h2>
+                    <div class="section-body">
                         <!-- Major -->
-                        <div class="sub-section">
-                            <h3 class="sub-title">Major <i class="fas fa-chevron-down mobile-icon"></i></h3>
+                        <div class="sub-section sub-major">
+                            <h3 class="sub-title">
+                                <span>Major</span>
+                                <i class="fas fa-chevron-down accordion-icon"></i>
+                            </h3>
                             <ul class="resource-list">
                                 <li class="resource-item">
                                     <span class="subject-name">Mathematics</span>
                                     <span class="course-title">Previous Year Question Paper</span>
                                     <div class="action-buttons">
-                                        <a href="maths-4th-sem-pyq.pdf" target="_blank" class="btn-action btn-view">View</a>
-                                        <a href="maths-4th-sem-pyq.pdf" download
-                                            class="btn-action btn-download">Download</a>
+                                        <a href="maths-4th-sem-pyq.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="maths-4th-sem-pyq.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
                                     </div>
                                 </li>
                                 <li class="resource-item">
                                     <span class="subject-name">Physics</span>
                                     <span class="course-title">Previous Year Question Paper</span>
                                     <div class="action-buttons">
-                                        <a href="physics-4th-sem-pyq.pdf" target="_blank"
-                                            class="btn-action btn-view">View</a>
-                                        <a href="physics-4th-sem-pyq.pdf" download
-                                            class="btn-action btn-download">Download</a>
+                                        <a href="physics-4th-sem-pyq.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="physics-4th-sem-pyq.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
                                     </div>
                                 </li>
                                 <li class="resource-item">
                                     <span class="subject-name">Chemistry</span>
                                     <span class="course-title">Previous Year Question Paper</span>
                                     <div class="action-buttons">
-                                        <a href="chemistry-4th-sem-pyq.pdf" target="_blank"
-                                            class="btn-action btn-view">View</a>
-                                        <a href="chemistry-4th-sem-pyq.pdf" download
-                                            class="btn-action btn-download">Download</a>
+                                        <a href="chemistry-4th-sem-pyq.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="chemistry-4th-sem-pyq.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
                                     </div>
                                 </li>
                             </ul>
                         </div>
 
                         <!-- Vocational -->
-                        <div class="sub-section">
-                            <h3 class="sub-title">Vocational <i class="fas fa-chevron-down mobile-icon"></i></h3>
+                        <div class="sub-section sub-vocational">
+                            <h3 class="sub-title">
+                                <span>Vocational</span>
+                                <i class="fas fa-chevron-down accordion-icon"></i>
+                            </h3>
                             <ul class="resource-list">
                                 <li class="resource-item">
                                     <span class="subject-name">Physics</span>
                                     <span class="course-title">Previous Year Question Paper</span>
                                     <div class="action-buttons">
-                                        <a href="physics-4th-sem-vocational-pyq.pdf" target="_blank"
-                                            class="btn-action btn-view">View</a>
-                                        <a href="physics-4th-sem-vocational-pyq.pdf" download
-                                            class="btn-action btn-download">Download</a>
+                                        <a href="physics-4th-sem-vocational-pyq.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="physics-4th-sem-vocational-pyq.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
                                     </div>
                                 </li>
                                 <li class="resource-item">
                                     <span class="subject-name">Chemistry</span>
                                     <span class="course-title">Previous Year Question Paper</span>
                                     <div class="action-buttons">
-                                        <a href="chemistry-4th-sem-vocational-pyq.pdf" target="_blank"
-                                            class="btn-action btn-view">View</a>
-                                        <a href="chemistry-4th-sem-vocational-pyq.pdf" download
-                                            class="btn-action btn-download">Download</a>
+                                        <a href="chemistry-4th-sem-vocational-pyq.pdf" target="_blank" class="btn-action btn-view"><i class="fas fa-eye"></i> View</a>
+                                        <a href="chemistry-4th-sem-vocational-pyq.pdf" download class="btn-action btn-download"><i class="fas fa-download"></i> Download</a>
                                     </div>
                                 </li>
                             </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Assignments Section -->
-                <div class="assignments-section">
-                    <h2 class="section-title">Assignments <i class="fas fa-chevron-down mobile-icon"></i></h2>
-                    <div class="section-content">
-                        <div style="text-align: center; color: #aaa; padding: 20px;">
-                            <i class="fas fa-bell"
-                                style="font-size: 2rem; color: #ffeb3b; margin-bottom: 10px;"></i>
-                            <p><strong>Physics Major</strong> and <strong>Physics Vocational</strong> assignments will be uploaded soon before the due date (<strong>20 April</strong>).</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- FAQ Section -->
-                <div class="faq-section">
-                    <h2 class="section-title">FAQ <i class="fas fa-chevron-down mobile-icon"></i></h2>
-                    <div class="section-content">
+                <div class="section-card" id="section-faq">
+                    <h2 class="section-title">
+                        <span><i class="fas fa-circle-question section-icon"></i> FAQ</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </h2>
+                    <div class="section-body">
                         <div class="faq-list">
                             <div class="faq-item">
-                                <div class="faq-question">Q: Where can I find the Practical Exam syllabus?</div>
-                                <div class="faq-answer">The practical syllabus is included within the theory syllabus
-                                    PDF
-                                    for each subject.</div>
+                                <div class="faq-question">
+                                    <span>Where can I find the Practical Exam syllabus?</span>
+                                    <i class="fas fa-chevron-down faq-icon"></i>
+                                </div>
+                                <div class="faq-answer">The practical syllabus is included within the theory syllabus PDF for each subject.</div>
                             </div>
                             <div class="faq-item">
-                                <div class="faq-question">Q: My subject's syllabus is missing.</div>
-                                <div class="faq-answer">This website currently hosts resources only for specific
-                                    subjects.
-                                    Please consult your department or classmates for other syllabi.</div>
+                                <div class="faq-question">
+                                    <span>My subject's syllabus is missing.</span>
+                                    <i class="fas fa-chevron-down faq-icon"></i>
+                                </div>
+                                <div class="faq-answer">This website currently hosts resources only for specific subjects. Please consult your department or classmates for other syllabi.</div>
                             </div>
                             <div class="faq-item">
-                                <div class="faq-question">Q: Why is my subject's PYQ missing?</div>
-                                <div class="faq-answer">We are actively working to expand our collection of Previous
-                                    Year
-                                    Questions. Please check back soon for updates.</div>
+                                <div class="faq-question">
+                                    <span>Why is my subject's PYQ missing?</span>
+                                    <i class="fas fa-chevron-down faq-icon"></i>
+                                </div>
+                                <div class="faq-answer">We are actively working to expand our collection of Previous Year Questions. Please check back soon for updates.</div>
                             </div>
                             <div class="faq-item">
-                                <div class="faq-question">Q: Why are there no assignments listed?</div>
-                                <div class="faq-answer">The assignments section will be updated as soon as new
-                                    assignments
-                                    are released.</div>
+                                <div class="faq-question">
+                                    <span>Why are there no assignments listed?</span>
+                                    <i class="fas fa-chevron-down faq-icon"></i>
+                                </div>
+                                <div class="faq-answer">The assignments section will be updated as soon as new assignments are released.</div>
                             </div>
                             <div class="faq-item">
-                                <div class="faq-question">Q: What is the title of the Chemistry Skill Vocational
-                                    subject?</div>
+                                <div class="faq-question">
+                                    <span>What is the title of the Chemistry Skill Vocational subject?</span>
+                                    <i class="fas fa-chevron-down faq-icon"></i>
+                                </div>
                                 <div class="faq-answer">It is titled "Chemistry of Skin Care Products".</div>
                             </div>
                             <div class="faq-item">
-                                <div class="faq-question">Q: Are these syllabus PDFs official?</div>
-                                <div class="faq-answer">These documents represent the assigned syllabus. However, they
-                                    are
-                                    provided for reference only, and we cannot guarantee their absolute accuracy.</div>
-                            </div>
-                            <div class="faq-item">
-                                <div class="faq-question">Q: I cannot verify if the Hindi Minor syllabus is correct.
+                                <div class="faq-question">
+                                    <span>Are these syllabus PDFs official?</span>
+                                    <i class="fas fa-chevron-down faq-icon"></i>
                                 </div>
-                                <div class="faq-answer">The course title matches the official Kumaun University
-                                    syllabus.
-                                    However, while the university PDF lists this Minor exam for the 3rd Semester, it is
-                                    conducted in the 4th Semester at our college.</div>
+                                <div class="faq-answer">These documents represent the assigned syllabus. However, they are provided for reference only, and we cannot guarantee their absolute accuracy.</div>
                             </div>
                             <div class="faq-item">
-                                <div class="faq-question">Q: Do Minor subject exams occur in every semester?</div>
-                                <div class="faq-answer">No, Minor subject exams are conducted only in the 2nd and 4th
-                                    Semesters.</div>
+                                <div class="faq-question">
+                                    <span>I cannot verify if the Hindi Minor syllabus is correct.</span>
+                                    <i class="fas fa-chevron-down faq-icon"></i>
+                                </div>
+                                <div class="faq-answer">The course title matches the official Kumaun University syllabus. However, while the university PDF lists this Minor exam for the 3rd Semester, it is conducted in the 4th Semester at our college.</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>Do Minor subject exams occur in every semester?</span>
+                                    <i class="fas fa-chevron-down faq-icon"></i>
+                                </div>
+                                <div class="faq-answer">No, Minor subject exams are conducted only in the 2nd and 4th Semesters.</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-    </div>
+                <!-- Assignments Section -->
+                <div class="section-card" id="section-assignments">
+                    <h2 class="section-title">
+                        <span><i class="fas fa-pen-to-square section-icon"></i> Assignments</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </h2>
+                    <div class="section-body">
+                        <div class="notice-card">
+                            <div class="notice-icon"><i class="fas fa-bell"></i></div>
+                            <p><strong>Physics Major</strong> and <strong>Physics Vocational</strong> assignments will be
+                                uploaded soon before the due date (<strong>20 April</strong>).</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End right column -->
+
+        </div> <!-- End grid-container -->
+    </div> <!-- End page-container -->
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -311,7 +324,6 @@
             bug, feel free to reach out!</p>
     </footer>
 
-    <!-- Accordion Script -->
     <script src="accordion.js"></script>
 </body>
 
