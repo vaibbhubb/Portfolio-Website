@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ═══════════════════════════════════════
-    // MOBILE ACCORDION — Level 1 (Syllabus, PYQ, Assignments, FAQ)
+    // MOBILE ACCORDION — Level 1 (Syllabus, PYQ, Assignments, FAQ, Give Feedback)
     // ═══════════════════════════════════════
     document.querySelectorAll('.section-title').forEach(title => {
         title.addEventListener('click', () => {
