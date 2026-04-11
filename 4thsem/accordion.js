@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    var faah = new Audio(new URL('../sounds/faah.mp3', window.location.href).href);
+    faah.preload = 'auto';
+
+    function playFaah() {
+        faah.pause();
+        faah.currentTime = 0;
+        faah.play().catch(function () { });
+    }
+
     // ═══════════════════════════════════════
     // MOBILE ACCORDION — Level 1 (Syllabus, PYQ, Assignments, FAQ, Give Feedback)
     // ═══════════════════════════════════════
@@ -23,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isOpen) {
                 title.classList.add('active');
                 body.classList.add('open');
+                playFaah();
             } else {
                 title.classList.remove('active');
                 body.classList.remove('open');
@@ -53,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isOpen) {
                 title.classList.add('active');
                 list.classList.add('open');
+                playFaah();
             } else {
                 title.classList.remove('active');
                 list.classList.remove('open');
@@ -66,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const answer = question.nextElementSibling;
+            const wasOpen = question.classList.contains('active');
 
             // Close all other FAQ items
             document.querySelectorAll('.faq-question.active').forEach(openQ => {
@@ -78,6 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Toggle current
             question.classList.toggle('active');
             answer.classList.toggle('open');
+
+            if (!wasOpen) {
+                playFaah();
+            }
         });
     });
 
