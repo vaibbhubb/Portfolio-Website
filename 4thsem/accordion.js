@@ -100,7 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Daily visitors counter for 4thsem page
     const dailyVisitorCount = document.getElementById('daily-visitor-count');
     if (dailyVisitorCount) {
-        const dateKey = new Date().toISOString().slice(0, 10);
+        const now = new Date();
+        const dateKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
         const counterKey = `4thsem-${dateKey}`;
         const namespace = 'vaibbhubb-in';
         const endpoint = `https://api.countapi.xyz/hit/${namespace}/${counterKey}`;
