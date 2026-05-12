@@ -456,6 +456,12 @@ body {
     margin-top: 40px;
 }
 
+.visitor-counter {
+    margin: 0 0 12px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
 /* ═══════════════════════════════════════
    ANIMATIONS
    ═══════════════════════════════════════ */

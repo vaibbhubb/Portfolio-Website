@@ -97,4 +97,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Daily visitors counter for 4thsem page
+    const dailyVisitorCount = document.getElementById('daily-visitor-count');
+    if (dailyVisitorCount) {
+        const dateKey = new Date().toISOString().slice(0, 10);
+        const counterKey = `4thsem-${dateKey}`;
+        const namespace = 'vaibbhubb-in';
+        const endpoint = `https://api.countapi.xyz/hit/${namespace}/${counterKey}`;
+
+        fetch(endpoint)
+            .then(response => {
+                if (!response.ok) throw new Error('Counter request failed');
+                return response.json();
+            })
+            .then(data => {
+                dailyVisitorCount.textContent = typeof data.value === 'number' ? data.value.toLocaleString('en-IN') : 'N/A';
+            })
+            .catch(() => {
+                dailyVisitorCount.textContent = 'N/A';
+            });
+    }
+
 });
