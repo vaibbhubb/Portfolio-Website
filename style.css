@@ -67,8 +67,8 @@ nav {
     width: 90%;
     max-width: 1200px;
     padding: 0 20px;
-    min-height: 100vh;
-    /* Keeps hero centered on first screen */
+    height: calc(100vh - 70px);
+    /* Fills exactly the visible area below the nav so the image is centered in the viewport */
     margin: 0 auto;
 }
 
@@ -191,9 +191,12 @@ nav {
 .image-content {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-self: center;
     position: relative;
+    height: 100%;
 }
 
 .image-bg-glow {
