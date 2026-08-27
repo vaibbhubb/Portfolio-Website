@@ -6,8 +6,15 @@
     <title>Semester 5 | Study Portal</title>
     <meta name="description" content="5th Semester B.Sc. Study Portal — Syllabus, Study Material & Previous Year Questions for Physics and Mathematics." />
     <link rel="icon" type="image/png" href="../images/favicon.png">
+    <base href="./">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script>
+        // Ensure trailing slash so relative PDF links always resolve to /5/ folder
+        if (!window.location.pathname.endsWith('/') && !window.location.pathname.endsWith('.html')) {
+            window.history.replaceState(null, '', window.location.pathname + '/' + window.location.search);
+        }
+    </script>
     <style>
         /* ── Reset & Theme Tokens ───────────────────────── */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
