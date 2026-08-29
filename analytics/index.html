@@ -3,12 +3,17 @@
 
 <head>
     <script data-goatcounter="https://vaibbhubb.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-    <script src="data.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics | Vaibbhubb</title>
     <meta name="description" content="Page view analytics dashboard for vaibbhubb.in — daily visits, hourly breakdowns, and traffic trends." />
     <link rel="icon" type="image/png" href="../images/favicon.png">
+    <base href="./">
+    <script>
+        if (!window.location.pathname.endsWith('/') && !window.location.pathname.endsWith('.html')) {
+            window.history.replaceState(null, '', window.location.pathname + '/' + window.location.search);
+        }
+    </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
@@ -513,24 +518,25 @@
     </main>
 
     <script>
+        // ── Initial Embedded Dataset ────────────
+        const INITIAL_DATA = {"hits":[{"count":29,"path_id":104996236,"path":"/5","event":false,"title":"Semester 5 | Study Portal","max":26,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":29},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,17,5,2,0,1,0,1,0,0,0,0],"daily":26},{"day":"2026-08-28","hourly":[0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":2},{"day":"2026-08-29","hourly":[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":1}]},{"count":6,"path_id":104996782,"path":"/","event":false,"title":"Vaibbhubb | Portfolio","max":6,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":6},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,3,2,1,0,0,0,0,0,0,0,0],"daily":6},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]},{"count":2,"path_id":104998261,"path":"/connect","event":false,"title":"Connect | Vaibbhubb","max":2,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":2},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0],"daily":2},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]},{"count":1,"path_id":104998323,"path":"/chess","event":false,"title":"Chess Journey | Vaibbhubb","max":1,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":1},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"daily":1},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]},{"count":1,"path_id":104998318,"path":"/tools-experimentation","event":false,"title":"Tool Experimentation | Vaibbhubb","max":1,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":1},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"daily":1},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]},{"count":1,"path_id":104998316,"path":"/reading","event":false,"title":"Book Reading | Vaibbhubb","max":1,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":1},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"daily":1},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]},{"count":1,"path_id":104998294,"path":"/mathematics","event":false,"title":"Mathematics | Vaibbhubb","max":1,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":1},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"daily":1},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]}],"total":41,"more":false};
+
         // ── Config ──────────────────────────────
         const GC_BASE = 'https://vaibbhubb.goatcounter.com';
         const STORAGE_KEY = 'gc_api_key';
         const DEFAULT_KEY = '1ab2o72x3t05v1o6paujpmk4dz35uydxnh5o2n17237x1zebyfr';
         const DEFAULT_PATH = '/5';
 
-        let currentData = null;
+        let currentData = INITIAL_DATA;
         let hideZeros = true;
 
         // ── Init ────────────────────────────────
         document.addEventListener('DOMContentLoaded', () => {
-            const key = getApiKey();
-            if (key) {
-                showDashboard();
-                loadData();
-            } else {
-                showSetup();
-            }
+            showDashboard();
+            buildPageSelector(currentData);
+            renderFromCache();
+            showData();
+            loadFreshData();
         });
 
         // ── Key management ──────────────────────
@@ -542,11 +548,11 @@
             if (!key) { input.style.borderColor = 'var(--red)'; input.focus(); return; }
             localStorage.setItem(STORAGE_KEY, key);
             showDashboard();
-            loadData();
+            loadFreshData();
         }
 
         function resetApiKey() {
-            if (confirm('Remove stored API key and use default?')) {
+            if (confirm('Reset stored API key?')) {
                 localStorage.removeItem(STORAGE_KEY);
                 location.reload();
             }
@@ -587,56 +593,20 @@
         // ── Page change ─────────────────────────
         function onPageChange() { renderFromCache(); }
 
-        // ── Fetch data ──────────────────────────
-        async function loadData() {
-            // 1. Instant render if data.js is loaded
-            if (window.GOATCOUNTER_DATA && window.GOATCOUNTER_DATA.hits) {
-                currentData = window.GOATCOUNTER_DATA;
-                buildPageSelector(currentData);
-                renderFromCache();
-                showData();
-            } else {
-                showLoading();
-            }
-
-            // 2. Fetch fresh data.json
+        // ── Background Fresh Data Fetch ─────────
+        async function loadFreshData() {
             try {
-                const localResp = await fetch('./data.json?v=' + Date.now());
-                if (localResp.ok) {
-                    currentData = await localResp.json();
-                    buildPageSelector(currentData);
-                    renderFromCache();
-                    showData();
-                    return;
-                }
-            } catch (localErr) {
-                console.log('data.json not loaded:', localErr);
-            }
-
-            // 3. Fallback if neither was present
-            if (!currentData) {
-                const key = getApiKey();
-                const today = new Date();
-                const start = '2024-01-01';
-                const end = fmtDate(today);
-                const url = `${GC_BASE}/api/v0/stats/hits?start=${start}&end=${end}&daily=true`;
-
-                try {
-                    const resp = await fetch(url, {
-                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` }
-                    });
-                    if (resp.ok) {
-                        currentData = await resp.json();
+                const resp = await fetch('data.json?v=' + Date.now());
+                if (resp.ok) {
+                    const fresh = await resp.json();
+                    if (fresh && fresh.hits) {
+                        currentData = fresh;
                         buildPageSelector(currentData);
                         renderFromCache();
-                        showData();
-                    } else {
-                        showError(`API Error (${resp.status})`);
                     }
-                } catch (err) {
-                    console.error(err);
-                    showError('Could not load analytics data.');
                 }
+            } catch (e) {
+                console.log('Using embedded analytics data.');
             }
         }
 
