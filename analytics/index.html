@@ -588,44 +588,44 @@
 
         // ── Fetch data ──────────────────────────
         async function loadData() {
-            const key = getApiKey();
-            if (!key) return showSetup();
-
             showLoading();
 
+            // 1. First try to load local data.json (guaranteed no CORS, instant)
+            try {
+                const localResp = await fetch('./data.json?v=' + Date.now());
+                if (localResp.ok) {
+                    currentData = await localResp.json();
+                    buildPageSelector(currentData);
+                    renderFromCache();
+                    showData();
+                    return;
+                }
+            } catch (localErr) {
+                console.log('Local data.json not loaded, trying live API...', localErr);
+            }
+
+            // 2. Fallback to direct API if data.json fails
+            const key = getApiKey();
             const today = new Date();
             const start = '2024-01-01';
             const end = fmtDate(today);
+            const url = `${GC_BASE}/api/v0/stats/hits?start=${start}&end=${end}&daily=true`;
 
             try {
-                const resp = await fetch(`${GC_BASE}/api/v0/stats/hits?start=${start}&end=${end}&daily=true`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${key}`
-                    }
+                const resp = await fetch(url, {
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` }
                 });
-
-                if (resp.status === 401 || resp.status === 403) {
-                    showError('Invalid or expired API key. Reset and enter a valid key.');
-                    return;
+                if (resp.ok) {
+                    currentData = await resp.json();
+                    buildPageSelector(currentData);
+                    renderFromCache();
+                    showData();
+                } else {
+                    showError(`API Error (${resp.status})`);
                 }
-                if (!resp.ok) {
-                    showError(`API error (${resp.status})`);
-                    return;
-                }
-
-                currentData = await resp.json();
-                buildPageSelector(currentData);
-                renderFromCache();
-                showData();
-
             } catch (err) {
                 console.error(err);
-                if (err.message?.includes('Failed to fetch') || err.message?.includes('NetworkError')) {
-                    showError('Network/CORS error. Add vaibbhubb.in in GoatCounter Settings → "Sites that can embed GoatCounter".');
-                } else {
-                    showError(err.message);
-                }
+                showError('Could not load analytics data.');
             }
         }
 
