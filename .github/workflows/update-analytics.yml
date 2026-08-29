@@ -24,12 +24,15 @@ jobs:
                "https://vaibbhubb.goatcounter.com/api/v0/stats/hits?start=2026-08-20&end=$TODAY&daily=true" \
                -o analytics/data.json
           
-          # Validate json
+          # Validate json and create data.js
           if jq empty analytics/data.json > /dev/null 2>&1; then
             echo "Valid JSON received."
+            echo -n "window.GOATCOUNTER_DATA = " > analytics/data.js
+            cat analytics/data.json >> analytics/data.js
+            echo ";" >> analytics/data.js
           else
             echo "Invalid JSON response, discarding."
-            git checkout analytics/data.json
+            git checkout analytics/data.json analytics/data.js 2>/dev/null || true
             exit 0
           fi
 
@@ -37,7 +40,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add analytics/data.json
+          git add analytics/data.json analytics/data.js
           if git diff --staged --quiet; then
             echo "No changes in analytics data."
           else

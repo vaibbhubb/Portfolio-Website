@@ -3,6 +3,7 @@
 
 <head>
     <script data-goatcounter="https://vaibbhubb.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script src="data.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics | Vaibbhubb</title>
@@ -588,9 +589,17 @@
 
         // ── Fetch data ──────────────────────────
         async function loadData() {
-            showLoading();
+            // 1. Instant render if data.js is loaded
+            if (window.GOATCOUNTER_DATA && window.GOATCOUNTER_DATA.hits) {
+                currentData = window.GOATCOUNTER_DATA;
+                buildPageSelector(currentData);
+                renderFromCache();
+                showData();
+            } else {
+                showLoading();
+            }
 
-            // 1. First try to load local data.json (guaranteed no CORS, instant)
+            // 2. Fetch fresh data.json
             try {
                 const localResp = await fetch('./data.json?v=' + Date.now());
                 if (localResp.ok) {
@@ -601,31 +610,33 @@
                     return;
                 }
             } catch (localErr) {
-                console.log('Local data.json not loaded, trying live API...', localErr);
+                console.log('data.json not loaded:', localErr);
             }
 
-            // 2. Fallback to direct API if data.json fails
-            const key = getApiKey();
-            const today = new Date();
-            const start = '2024-01-01';
-            const end = fmtDate(today);
-            const url = `${GC_BASE}/api/v0/stats/hits?start=${start}&end=${end}&daily=true`;
+            // 3. Fallback if neither was present
+            if (!currentData) {
+                const key = getApiKey();
+                const today = new Date();
+                const start = '2024-01-01';
+                const end = fmtDate(today);
+                const url = `${GC_BASE}/api/v0/stats/hits?start=${start}&end=${end}&daily=true`;
 
-            try {
-                const resp = await fetch(url, {
-                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` }
-                });
-                if (resp.ok) {
-                    currentData = await resp.json();
-                    buildPageSelector(currentData);
-                    renderFromCache();
-                    showData();
-                } else {
-                    showError(`API Error (${resp.status})`);
+                try {
+                    const resp = await fetch(url, {
+                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` }
+                    });
+                    if (resp.ok) {
+                        currentData = await resp.json();
+                        buildPageSelector(currentData);
+                        renderFromCache();
+                        showData();
+                    } else {
+                        showError(`API Error (${resp.status})`);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    showError('Could not load analytics data.');
                 }
-            } catch (err) {
-                console.error(err);
-                showError('Could not load analytics data.');
             }
         }
 
