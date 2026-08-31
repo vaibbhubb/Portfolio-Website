@@ -526,8 +526,9 @@
         const STORAGE_KEY = 'gc_api_key';
         const DEFAULT_KEY = '1ab2o72x3t05v1o6paujpmk4dz35uydxnh5o2n17237x1zebyfr';
         const DEFAULT_PATH = '/5';
+        const ANALYTICS_START = '2026-08-27';
 
-        let currentData = INITIAL_DATA;
+        let currentData = normalizeData(INITIAL_DATA);
         let hideZeros = true;
 
         // ── Init ────────────────────────────────
@@ -596,9 +597,16 @@
         // ── Background Fresh Data Fetch ─────────
         async function loadFreshData() {
             try {
-                const resp = await fetch('data.json?v=' + Date.now());
+                const params = new URLSearchParams({
+                    start: ANALYTICS_START,
+                    end: getDateString(new Date()),
+                    limit: '100'
+                });
+                const resp = await fetch(`${GC_BASE}/api/v0/stats/hits?${params}`, {
+                    headers: { Authorization: `Bearer ${getApiKey()}` }
+                });
                 if (resp.ok) {
-                    const fresh = await resp.json();
+                    const fresh = normalizeData(await resp.json());
                     if (fresh && fresh.hits) {
                         currentData = fresh;
                         buildPageSelector(currentData);
@@ -606,8 +614,34 @@
                     }
                 }
             } catch (e) {
-                console.log('Using embedded analytics data.');
+                console.log('Using embedded analytics data.', e);
             }
+        }
+
+        function normalizeData(data) {
+            if (!data || !Array.isArray(data.hits)) return data;
+
+            const today = getDateString(new Date());
+            const dates = [];
+            for (let date = ANALYTICS_START; date <= today; date = addDays(date, 1)) {
+                dates.push(date);
+            }
+
+            data.hits.forEach(hit => {
+                const statsByDate = new Map((hit.stats || []).map(stat => [stat.day, stat]));
+                hit.stats = dates.map(day => statsByDate.get(day) || {
+                    day,
+                    hourly: Array(24).fill(0),
+                    daily: 0
+                });
+            });
+            return data;
+        }
+
+        function addDays(date, amount) {
+            const next = new Date(date + 'T00:00:00');
+            next.setDate(next.getDate() + amount);
+            return getDateString(next);
         }
 
         // ── Build page selector from API data ───
@@ -809,7 +843,14 @@
         }
 
         // ── Helpers ─────────────────────────────
-        function fmtDate(d) { return d.toISOString().split('T')[0]; }
+        function getDateString(d) {
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        function fmtDate(d) { return getDateString(d); }
 
         function fmtDisplay(s) {
             if (!s) return '—';
