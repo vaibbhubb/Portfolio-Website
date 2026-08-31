@@ -1083,6 +1083,17 @@
     </main>
 
     <script>
+        // Play the Semester 5 audio after any user click on this page.
+        const semesterAudio = new Audio('../assets/tonight7.mp3');
+        semesterAudio.preload = 'auto';
+
+        document.addEventListener('click', () => {
+            if (semesterAudio.ended) {
+                semesterAudio.currentTime = 0;
+            }
+            semesterAudio.play().catch(() => {});
+        });
+
         // ── Helper to close an accordion element smoothly ──
         function closeAccordion(el, panel, trigger) {
             if (!el.classList.contains('open')) return;
