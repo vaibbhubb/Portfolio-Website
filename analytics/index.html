@@ -384,6 +384,7 @@
             .data-table thead th { padding: 8px 12px; }
         }
     </style>
+    <script src="data.js"></script>
 </head>
 
 <body>
@@ -399,23 +400,7 @@
             <p class="subtitle">Daily visits & hourly breakdowns across vaibbhubb.in</p>
         </header>
 
-        <!-- API Key Setup -->
-        <section class="setup-card" id="setup-card" style="display: none;">
-            <h3><i class="fas fa-key"></i> Connect GoatCounter</h3>
-            <p>Enter your GoatCounter API key to load analytics data.</p>
-            <ol>
-                <li>Go to <a href="https://vaibbhubb.goatcounter.com" target="_blank" rel="noopener" style="color: var(--accent);">vaibbhubb.goatcounter.com</a></li>
-                <li>Click your <strong>username</strong> (top-right) → <strong>API</strong></li>
-                <li>Create a key with <strong>Read-only</strong> access</li>
-                <li>Paste the key below</li>
-            </ol>
-            <div class="key-input-group">
-                <input type="password" id="api-key-input" placeholder="Paste your API key here..." autocomplete="off" />
-                <button class="btn-accent" onclick="saveApiKey()">
-                    <i class="fas fa-plug"></i> Connect
-                </button>
-            </div>
-        </section>
+
 
         <!-- Dashboard -->
         <div id="dashboard" style="display: none;">
@@ -512,23 +497,17 @@
 
         <footer class="footer" id="footer" style="display: none;">
             <p>Powered by <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a> · Data refreshes on page load</p>
-            <button class="reset-key" onclick="resetApiKey()"><i class="fas fa-times"></i> Reset API Key</button>
         </footer>
 
     </main>
 
     <script>
-        // ── Initial Embedded Dataset ────────────
-        const INITIAL_DATA = {"hits":[{"count":29,"path_id":104996236,"path":"/5","event":false,"title":"Semester 5 | Study Portal","max":26,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":29},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,17,5,2,0,1,0,1,0,0,0,0],"daily":26},{"day":"2026-08-28","hourly":[0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":2},{"day":"2026-08-29","hourly":[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":1}]},{"count":6,"path_id":104996782,"path":"/","event":false,"title":"Vaibbhubb | Portfolio","max":6,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":6},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,3,2,1,0,0,0,0,0,0,0,0],"daily":6},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]},{"count":2,"path_id":104998261,"path":"/connect","event":false,"title":"Connect | Vaibbhubb","max":2,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":2},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0],"daily":2},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]},{"count":1,"path_id":104998323,"path":"/chess","event":false,"title":"Chess Journey | Vaibbhubb","max":1,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":1},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"daily":1},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]},{"count":1,"path_id":104998318,"path":"/tools-experimentation","event":false,"title":"Tool Experimentation | Vaibbhubb","max":1,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":1},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"daily":1},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]},{"count":1,"path_id":104998316,"path":"/reading","event":false,"title":"Book Reading | Vaibbhubb","max":1,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":1},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"daily":1},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]},{"count":1,"path_id":104998294,"path":"/mathematics","event":false,"title":"Mathematics | Vaibbhubb","max":1,"stats":[{"day":"2026-08-20","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-21","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-22","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-23","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-24","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0,"weekly":1},{"day":"2026-08-25","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-26","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-27","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"daily":1},{"day":"2026-08-28","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0},{"day":"2026-08-29","hourly":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"daily":0}]}],"total":41,"more":false};
-
         // ── Config ──────────────────────────────
-        const GC_BASE = 'https://vaibbhubb.goatcounter.com';
-        const STORAGE_KEY = 'gc_api_key';
-        const DEFAULT_KEY = '1ab2o72x3t05v1o6paujpmk4dz35uydxnh5o2n17237x1zebyfr';
-        const DEFAULT_PATH = '/5';
+        const DEFAULT_PATH = '__all__';
         const ANALYTICS_START = '2026-08-27';
 
-        let currentData = normalizeData(INITIAL_DATA);
+        // Load data from data.js (sets window.GOATCOUNTER_DATA)
+        let currentData = normalizeData(window.GOATCOUNTER_DATA || { hits: [], total: 0, more: false });
         let hideZeros = true;
 
         // ── Init ────────────────────────────────
@@ -537,35 +516,11 @@
             buildPageSelector(currentData);
             renderFromCache();
             showData();
-            loadFreshData();
         });
 
-        // ── Key management ──────────────────────
-        function getApiKey() { return localStorage.getItem(STORAGE_KEY) || DEFAULT_KEY; }
-
-        function saveApiKey() {
-            const input = document.getElementById('api-key-input');
-            const key = input.value.trim();
-            if (!key) { input.style.borderColor = 'var(--red)'; input.focus(); return; }
-            localStorage.setItem(STORAGE_KEY, key);
-            showDashboard();
-            loadFreshData();
-        }
-
-        function resetApiKey() {
-            if (confirm('Reset stored API key?')) {
-                localStorage.removeItem(STORAGE_KEY);
-                location.reload();
-            }
-        }
-
         // ── UI states ───────────────────────────
-        function showSetup() {
-            toggle('setup-card', true); toggle('dashboard', false);
-            toggle('loading-state', false); toggle('error-state', false); toggle('footer', false);
-        }
         function showDashboard() {
-            toggle('setup-card', false); toggle('dashboard', true); toggle('footer', true);
+            toggle('dashboard', true); toggle('footer', true);
         }
         function showLoading() {
             toggle('loading-state', true); toggle('dashboard', false); toggle('error-state', false);
@@ -578,7 +533,10 @@
         function showData() {
             toggle('loading-state', false); toggle('error-state', false); toggle('dashboard', true);
         }
-        function toggle(id, show) { document.getElementById(id).style.display = show ? '' : 'none'; }
+        function toggle(id, show) {
+            const el = document.getElementById(id);
+            if (el) el.style.display = show ? '' : 'none';
+        }
 
         // ── Toggle hide zeros ───────────────────
         function toggleHideZeros() {
@@ -594,30 +552,7 @@
         // ── Page change ─────────────────────────
         function onPageChange() { renderFromCache(); }
 
-        // ── Background Fresh Data Fetch ─────────
-        async function loadFreshData() {
-            try {
-                const params = new URLSearchParams({
-                    start: ANALYTICS_START,
-                    end: getDateString(new Date()),
-                    limit: '100'
-                });
-                const resp = await fetch(`${GC_BASE}/api/v0/stats/hits?${params}`, {
-                    headers: { Authorization: `Bearer ${getApiKey()}` }
-                });
-                if (resp.ok) {
-                    const fresh = normalizeData(await resp.json());
-                    if (fresh && fresh.hits) {
-                        currentData = fresh;
-                        buildPageSelector(currentData);
-                        renderFromCache();
-                    }
-                }
-            } catch (e) {
-                console.log('Using embedded analytics data.', e);
-            }
-        }
-
+        // ── Normalize data: fill missing dates ──
         function normalizeData(data) {
             if (!data || !Array.isArray(data.hits)) return data;
 
@@ -644,10 +579,51 @@
             return getDateString(next);
         }
 
-        // ── Build page selector from API data ───
+        // ── Build "All Pages" aggregate ─────────
+        function buildAggregateHit(data) {
+            const hits = data.hits || [];
+            if (hits.length === 0) return null;
+
+            // Use the date range from the first hit
+            const dates = hits[0].stats.map(s => s.day);
+            const totalCount = data.total || hits.reduce((s, h) => s + (h.count || 0), 0);
+
+            const stats = dates.map((day, i) => {
+                const hourly = Array(24).fill(0);
+                let daily = 0;
+                hits.forEach(hit => {
+                    const s = hit.stats[i];
+                    if (s) {
+                        daily += s.daily || 0;
+                        (s.hourly || []).forEach((v, h) => { hourly[h] += v; });
+                    }
+                });
+                return { day, hourly, daily };
+            });
+
+            return {
+                count: totalCount,
+                path: '__all__',
+                path_id: -1,
+                event: false,
+                title: 'All Pages',
+                max: Math.max(...stats.map(s => s.daily), 0),
+                stats
+            };
+        }
+
+        // ── Build page selector from data ───────
         function buildPageSelector(data) {
             const select = document.getElementById('path-select');
             select.innerHTML = '';
+
+            // Add "All Pages" option first
+            const allOpt = document.createElement('option');
+            allOpt.value = '__all__';
+            const totalViews = data.total || 0;
+            allOpt.textContent = `All Pages — Site Overview (${totalViews})`;
+            allOpt.selected = true;
+            select.appendChild(allOpt);
 
             const hits = data.hits || [];
             // Sort by count descending
@@ -657,14 +633,8 @@
                 const opt = document.createElement('option');
                 opt.value = h.path;
                 opt.textContent = `${h.path} — ${h.title || ''} (${h.count || 0})`;
-                if (h.path === DEFAULT_PATH) opt.selected = true;
                 select.appendChild(opt);
             });
-
-            // If default path not found, select first
-            if (!sorted.find(h => h.path === DEFAULT_PATH) && select.options.length > 0) {
-                select.options[0].selected = true;
-            }
         }
 
         function renderFromCache() {
@@ -676,7 +646,13 @@
         // ── Main render ─────────────────────────
         function renderDashboard(data, selectedPath) {
             const hits = data.hits || [];
-            const pathData = hits.find(h => h.path === selectedPath);
+            let pathData;
+
+            if (selectedPath === '__all__') {
+                pathData = buildAggregateHit(data);
+            } else {
+                pathData = hits.find(h => h.path === selectedPath);
+            }
 
             if (!pathData) { renderEmpty(selectedPath); return; }
 
@@ -869,10 +845,6 @@
             try { return new Date(s + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short' }); }
             catch { return ''; }
         }
-
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Enter' && document.activeElement?.id === 'api-key-input') saveApiKey();
-        });
     </script>
 </body>
 
