@@ -1,0 +1,68 @@
+name: Update Analytics Data
+
+on:
+  schedule:
+    # Runs daily at 1:00 AM UTC (6:30 AM IST)
+    - cron: '0 1 * * *'
+  workflow_dispatch: # Allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch fresh data from GoatCounter
+        env:
+          GOATCOUNTER_API_KEY: ${{ secrets.GOATCOUNTER_API_KEY }}
+        run: |
+          START_DATE="2026-08-27"
+          END_DATE=$(date +%Y-%m-%d)
+          API_URL="https://vaibbhubb.goatcounter.com/api/v0/stats/hits?start=${START_DATE}&end=${END_DATE}&limit=100"
+
+          echo "Fetching GoatCounter data..."
+          echo "  Date range: ${START_DATE} -> ${END_DATE}"
+
+          RESPONSE=$(curl -sf \
+            -H "Authorization: Bearer ${GOATCOUNTER_API_KEY}" \
+            -H "Content-Type: application/json" \
+            "${API_URL}")
+
+          if [ $? -ne 0 ] || [ -z "$RESPONSE" ]; then
+            echo "::error::Failed to fetch data from GoatCounter API"
+            exit 1
+          fi
+
+          # Write data.json
+          echo "$RESPONSE" | jq -c '.' > analytics/data.json
+          echo "  Updated: analytics/data.json"
+
+          # Write data.js
+          echo -n "window.GOATCOUNTER_DATA = " > analytics/data.js
+          echo "$RESPONSE" | jq -c '.' >> analytics/data.js
+          # Append semicolon and newline
+          sed -i 's/$/;/' analytics/data.js
+          echo "  Updated: analytics/data.js"
+
+          # Summary
+          TOTAL=$(echo "$RESPONSE" | jq '.total')
+          PAGES=$(echo "$RESPONSE" | jq '.hits | length')
+          echo "Done! ${TOTAL} total views across ${PAGES} pages."
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add analytics/data.js analytics/data.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: auto-update analytics data [skip ci]"
+            git push
+            echo "Changes committed and pushed."
+          fi
