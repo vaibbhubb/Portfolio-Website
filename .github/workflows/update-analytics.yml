@@ -28,13 +28,21 @@ jobs:
           echo "Fetching GoatCounter data..."
           echo "  Date range: ${START_DATE} -> ${END_DATE}"
 
-          RESPONSE=$(curl -sf \
+          if ! RESPONSE=$(curl -sf \
+            --retry 5 \
+            --retry-all-errors \
+            --retry-delay 5 \
+            --connect-timeout 20 \
+            --max-time 120 \
             -H "Authorization: Bearer ${GOATCOUNTER_API_KEY}" \
             -H "Content-Type: application/json" \
-            "${API_URL}")
-
-          if [ $? -ne 0 ] || [ -z "$RESPONSE" ]; then
+            "${API_URL}"); then
             echo "::error::Failed to fetch data from GoatCounter API"
+            exit 1
+          fi
+
+          if [ -z "$RESPONSE" ]; then
+            echo "::error::Received empty response from GoatCounter API"
             exit 1
           fi
 
