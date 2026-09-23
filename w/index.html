@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Profiles | Apollo Digital</title>
+    <meta name="description" content="Internal clinic profiles dashboard — dental clinic information, doctor details, timings, and treatment pricing.">
+    <base href="/w/">
+    <script>
+        // Ensure address bar ends with trailing slash for clean relative navigation
+        if (window.location.pathname.endsWith('/w')) {
+            window.history.replaceState(null, '', window.location.pathname + '/' + window.location.search + window.location.hash);
+        }
+    </script>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ═══════════ CLINIC SELECTOR BAR ═══════════ -->
+    <header id="clinic-selector-header">
+        <div class="selector-inner">
+            <div class="clinic-pills-track" id="clinic-pills-track">
+                <!-- Pills injected by JS -->
+            </div>
+        </div>
+        <div class="selected-clinic-indicator" id="selected-indicator">
+            <span class="indicator-dot"></span>
+            <span id="selected-clinic-name">Select a clinic</span>
+        </div>
+    </header>
+
+    <!-- ═══════════ MAIN CONTENT ═══════════ -->
+    <main id="main-content">
+
+        <!-- ── INFO ROW: Clinic Info + Doctor + Timings ── -->
+        <section class="info-row" id="info-row">
+
+            <!-- Clinic Info Card -->
+            <div class="glass-card clinic-info-card" id="clinic-info-card">
+                <div class="card-header">
+                    <h2 id="clinic-name-display">—</h2>
+                    <button class="copy-btn" id="copy-clinic-btn" title="Copy clinic info">
+                        <i class="far fa-copy"></i>
+                        <span class="copy-label">Copy</span>
+                    </button>
+                </div>
+                <div class="info-detail">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="clinic-address">—</span>
+                </div>
+                <div class="info-detail">
+                    <i class="fas fa-location-arrow"></i>
+                    <a id="clinic-map-link" href="#" target="_blank">Open in Maps</a>
+                </div>
+                <div class="info-detail">
+                    <i class="fas fa-phone"></i>
+                    <a id="clinic-phone" href="#">—</a>
+                </div>
+                <div class="info-detail">
+                    <i class="fas fa-globe"></i>
+                    <a id="clinic-website" href="#" target="_blank">—</a>
+                </div>
+                <div class="info-detail" id="consultation-info">
+                    <i class="fas fa-stethoscope"></i>
+                    <span id="clinic-consultation">—</span>
+                </div>
+                <div class="info-detail social-proof-row" id="social-proof-row">
+                    <i class="fas fa-star"></i>
+                    <span id="clinic-rating">—</span>
+                </div>
+            </div>
+
+            <!-- Doctor Profile Card -->
+            <div class="glass-card doctor-card" id="doctor-card">
+                <div class="doctor-top">
+                    <div class="doctor-photo-wrap">
+                        <img id="doctor-photo" src="" alt="Doctor photo" loading="lazy">
+                    </div>
+                    <div class="doctor-meta">
+                        <h3 id="doctor-name">—</h3>
+                        <p class="doctor-creds" id="doctor-creds">—</p>
+                        <p class="doctor-exp" id="doctor-exp">—</p>
+                    </div>
+                </div>
+                <div class="expertise-tags" id="expertise-tags">
+                    <!-- Tags injected by JS -->
+                </div>
+                <div class="credibility-hooks" id="credibility-hooks">
+                    <!-- Hooks injected by JS -->
+                </div>
+            </div>
+
+            <!-- Timings Card -->
+            <div class="glass-card timings-card" id="timings-card">
+                <h3><i class="far fa-clock"></i> Operating Hours</h3>
+                <table class="timings-table" id="timings-table">
+                    <tbody>
+                        <tr data-day="mon"><td class="day-name">Monday</td><td class="day-time" id="time-mon">—</td></tr>
+                        <tr data-day="tue"><td class="day-name">Tuesday</td><td class="day-time" id="time-tue">—</td></tr>
+                        <tr data-day="wed"><td class="day-name">Wednesday</td><td class="day-time" id="time-wed">—</td></tr>
+                        <tr data-day="thu"><td class="day-name">Thursday</td><td class="day-time" id="time-thu">—</td></tr>
+                        <tr data-day="fri"><td class="day-name">Friday</td><td class="day-time" id="time-fri">—</td></tr>
+                        <tr data-day="sat"><td class="day-name">Saturday</td><td class="day-time" id="time-sat">—</td></tr>
+                        <tr data-day="sun"><td class="day-name">Sunday</td><td class="day-time" id="time-sun">—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ── TREATMENT PRICING SECTION ── -->
+        <section class="pricing-section" id="pricing-section">
+            <div class="section-header">
+                <h2><i class="fas fa-tags"></i> Treatment Pricing</h2>
+                <div class="pricing-controls">
+                    <button class="expand-all-btn" id="expand-all-btn">
+                        <i class="fas fa-expand-alt"></i> Expand All
+                    </button>
+                    <button class="collapse-all-btn" id="collapse-all-btn">
+                        <i class="fas fa-compress-alt"></i> Collapse All
+                    </button>
+                </div>
+            </div>
+            <div class="categories-grid" id="categories-grid">
+                <!-- Category cards injected by JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════════ COPY TOAST ═══════════ -->
+    <div class="copy-toast" id="copy-toast">
+        <i class="fas fa-check-circle"></i> Copied to clipboard!
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
