@@ -1,0 +1,44 @@
+Day,Session,Order,Exercise,Type,Sets,Reps_Min,Reps_Max,Notes
+Monday,Push A,1,Flat Dumbbell Bench Press,Strength,3,8,10,
+Monday,Push A,2,Incline Dumbbell Press,Strength,3,10,12,
+Monday,Push A,3,Seated Dumbbell Shoulder Press,Strength,3,8,10,
+Monday,Push A,4,Dumbbell Lateral Raise,Strength,3,12,15,
+Monday,Push A,5,Cable Triceps Rope Pushdown,Strength,3,10,12,
+Monday,Push A,6,Overhead Dumbbell Triceps Extension,Strength,2,12,12,
+Monday,Push A,7,Incline Treadmill Walk,Cardio,1,,,20 min at 10 to 12 percent incline and 5 to 5.5 km/h
+Tuesday,Pull A,1,Lat Pulldown,Strength,3,8,10,
+Tuesday,Pull A,2,Seated Cable Row,Strength,3,10,10,
+Tuesday,Pull A,3,One-Arm Dumbbell Row,Strength,3,10,10,Each side
+Tuesday,Pull A,4,Cable Face Pull,Strength,3,12,15,
+Tuesday,Pull A,5,Dumbbell Biceps Curl,Strength,3,10,12,
+Tuesday,Pull A,6,Hammer Curl,Strength,2,12,12,
+Tuesday,Pull A,7,Stationary Bike Intervals,Cardio,1,,,3 min easy warm-up then 8 rounds of 30 sec hard / 60 sec easy then 3 min cool-down
+Wednesday,Legs A,1,Goblet Squat,Strength,3,8,10,Move to Barbell Back Squat once form is solid
+Wednesday,Legs A,2,Romanian Deadlift,Strength,3,8,10,
+Wednesday,Legs A,3,Leg Press,Strength,3,10,12,
+Wednesday,Legs A,4,Lying Leg Curl,Strength,3,12,12,
+Wednesday,Legs A,5,Standing Calf Raise,Strength,3,12,15,
+Wednesday,Legs A,6,Plank,Strength,3,,,Hold 30 to 45 sec
+Wednesday,Legs A,7,Incline Treadmill Walk,Cardio,1,,,15 min at easy pace
+Thursday,Push B,1,Incline Barbell or Dumbbell Press,Strength,3,8,10,
+Thursday,Push B,2,Machine Chest Press,Strength,3,10,12,
+Thursday,Push B,3,Standing Barbell Overhead Press,Strength,3,6,8,Dumbbells are fine
+Thursday,Push B,4,Cable Lateral Raise,Strength,3,12,15,
+Thursday,Push B,5,Pec Deck Fly,Strength,2,12,15,
+Thursday,Push B,6,Bench Dips or Close-Grip Push-Ups,Strength,3,,,To near failure
+Thursday,Push B,7,Rowing Machine Intervals,Cardio,1,,,8 rounds of 1 min hard / 1 min easy (16 min)
+Friday,Pull B,1,Assisted Pull-Up,Strength,3,6,10,Or close-grip Lat Pulldown
+Friday,Pull B,2,Barbell Bent-Over Row,Strength,3,8,10,Or Chest-Supported Row
+Friday,Pull B,3,Straight-Arm Cable Pulldown,Strength,3,12,12,
+Friday,Pull B,4,Reverse Pec Deck,Strength,3,12,15,
+Friday,Pull B,5,EZ-Bar Curl,Strength,3,10,10,
+Friday,Pull B,6,Dumbbell Shrug,Strength,2,12,12,
+Friday,Pull B,7,Incline Treadmill Walk,Cardio,1,,,20 min at 10 to 12 percent incline and 5 to 5.5 km/h
+Saturday,Legs B,1,Walking Lunges,Strength,3,10,10,Per leg
+Saturday,Legs B,2,Barbell Hip Thrust,Strength,3,10,10,
+Saturday,Legs B,3,Leg Extension,Strength,3,12,12,
+Saturday,Legs B,4,Seated Leg Curl,Strength,3,12,12,
+Saturday,Legs B,5,Seated Calf Raise,Strength,3,15,15,
+Saturday,Legs B,6,Hanging Knee Raise,Strength,3,10,10,
+Saturday,Legs B,7,Cross-Trainer (Elliptical),Cardio,1,,,20 min at steady moderate pace
+Sunday,Rest,1,Walk,Cardio,1,,,8000 to 10000 steps and no gym
