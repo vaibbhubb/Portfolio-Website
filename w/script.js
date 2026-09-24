@@ -35,13 +35,11 @@ function initDayTabs() {
     });
 }
 
-// --- Staggered Card Reveal ---
+// --- Instant Card Reveal ---
 function revealCards(panel) {
     const cards = panel.querySelectorAll('.exercise-card');
-    cards.forEach((card, i) => {
-        setTimeout(() => {
-            card.classList.add('visible');
-        }, i * 80);
+    cards.forEach((card) => {
+        card.classList.add('visible');
     });
 }
 
