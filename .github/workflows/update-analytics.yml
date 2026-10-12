@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Fetch fresh data from GoatCounter
         env:
@@ -28,7 +28,8 @@ jobs:
           echo "Fetching GoatCounter data..."
           echo "  Date range: ${START_DATE} -> ${END_DATE}"
 
-          if ! RESPONSE=$(curl -sf \
+          # Fetch with verbose error reporting
+          HTTP_CODE=$(curl -s -o /tmp/gc_response.json -w "%{http_code}" \
             --retry 5 \
             --retry-all-errors \
             --retry-delay 5 \
@@ -36,13 +37,27 @@ jobs:
             --max-time 120 \
             -H "Authorization: Bearer ${GOATCOUNTER_API_KEY}" \
             -H "Content-Type: application/json" \
-            "${API_URL}"); then
-            echo "::error::Failed to fetch data from GoatCounter API"
+            "${API_URL}")
+
+          if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
+            echo "::error::GoatCounter API returned HTTP ${HTTP_CODE}"
+            echo "Response body:"
+            cat /tmp/gc_response.json || true
             exit 1
           fi
 
+          RESPONSE=$(cat /tmp/gc_response.json)
+
           if [ -z "$RESPONSE" ]; then
             echo "::error::Received empty response from GoatCounter API"
+            exit 1
+          fi
+
+          # Validate JSON
+          if ! echo "$RESPONSE" | jq empty 2>/dev/null; then
+            echo "::error::GoatCounter API returned invalid JSON"
+            echo "Response body:"
+            echo "$RESPONSE"
             exit 1
           fi
 
@@ -50,11 +65,8 @@ jobs:
           echo "$RESPONSE" | jq -c '.' > analytics/data.json
           echo "  Updated: analytics/data.json"
 
-          # Write data.js
-          echo -n "window.GOATCOUNTER_DATA = " > analytics/data.js
-          echo "$RESPONSE" | jq -c '.' >> analytics/data.js
-          # Append semicolon and newline
-          sed -i 's/$/;/' analytics/data.js
+          # Write data.js (single-line, with trailing semicolon)
+          printf 'window.GOATCOUNTER_DATA = %s;\n' "$(echo "$RESPONSE" | jq -c '.')" > analytics/data.js
           echo "  Updated: analytics/data.js"
 
           # Summary
