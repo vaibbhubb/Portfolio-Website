@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script data-goatcounter="https://vaibbhubb.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semester 5 | Study Portal</title>
+    <meta name="description" content="5th Semester B.Sc. Study Portal — Syllabus, Study Material & Previous Year Questions for Physics and Mathematics." />
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <base href="./">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script>
+        // Ensure trailing slash so relative PDF links always resolve to /chetna/ folder
+        if (!window.location.pathname.endsWith('/') && !window.location.pathname.endsWith('.html')) {
+            window.history.replaceState(null, '', window.location.pathname + '/' + window.location.search);
+        }
+    </script>
+    <style>
+        /* ── Reset & Theme Tokens ───────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --gold: #ffd600;
+            --gold-hover: #ffea00;
+            --gold-glow: rgba(255, 214, 0, 0.16);
+            --gold-soft: rgba(255, 214, 0, 0.06);
+            --bg: #09090b;
+            --surface: #121215;
+            --surface-sub: #18181c;
+            --surface-hover: #1f1f25;
+            --border: #23232a;
+            --border-gold: rgba(255, 214, 0, 0.35);
+            --text: #f4f4f5;
+            --text-muted: #90909b;
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --transition: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 24px 16px 50px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .shell {
+            width: min(680px, 100%);
+        }
+
+        /* ── Back Navigation ────────────────────────────── */
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: all var(--transition);
+        }
+
+        .back-nav:hover {
+            color: var(--gold);
+            border-color: var(--border-gold);
+            background: var(--surface-hover);
+        }
+
+        /* ── Header ─────────────────────────────────────── */
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold-glow);
+            border: 1px solid var(--border-gold);
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5.5vw, 2.7rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+        }
+
+        .header h1 span {
+            color: var(--gold);
+        }
+
+        .header .subtitle {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ── Semester 5 Notice Card ─────────────────────── */
+        .sem-note-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: linear-gradient(135deg, rgba(255, 214, 0, 0.08) 0%, rgba(18, 18, 21, 0.9) 100%);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            margin-bottom: 26px;
+        }
+
+        .sem-note-icon {
+            font-size: 1.3rem;
+            color: var(--gold);
+            flex: none;
+            margin-top: 2px;
+        }
+
+        .sem-note-text h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .sem-note-text p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ── Top Level Accordion Drawers ────────────────── */
+        .drawer-group {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .main-drawer {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+
+        .main-drawer:hover {
+            border-color: rgba(255, 214, 0, 0.28);
+        }
+
+        .main-drawer.open {
+            border-color: var(--gold);
+            box-shadow: 0 8px 32px rgba(255, 214, 0, 0.08);
+        }
+
+        .main-drawer-trigger {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 20px;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            text-align: left;
+            user-select: none;
+            transition: background var(--transition);
+        }
+
+        .main-drawer-trigger:hover {
+            background: var(--surface-hover);
+        }
+
+        .main-drawer-icon {
+            width: 46px;
+            height: 46px;
+            flex: none;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius-md);
+            background: var(--gold-glow);
+            border: 1px solid var(--border-gold);
+            color: var(--gold);
+            font-size: 1.25rem;
+            transition: all var(--transition);
+        }
+
+        .main-drawer.open .main-drawer-icon {
+            background: var(--gold);
+            color: #000;
+            transform: scale(1.04);
+        }
+
+        .main-drawer-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .main-drawer-info h2 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        .main-drawer-info p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .main-drawer-chevron {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: transform var(--transition), color var(--transition);
+        }
+
+        .main-drawer.open .main-drawer-chevron {
+            transform: rotate(180deg);
+            color: var(--gold);
+        }
+
+        .main-drawer-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .main-drawer-content {
+            padding: 0 18px 18px;
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+
+        /* ── Sub Drawers (Accordion inside Top Drawer) ──── */
+        .sub-drawer-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sub-drawer {
+            background: var(--surface-sub);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: border-color var(--transition), background var(--transition);
+        }
+
+        .sub-drawer:hover {
+            border-color: rgba(255, 214, 0, 0.22);
+        }
+
+        .sub-drawer.open {
+            border-color: var(--border-gold);
+            background: #141418;
+        }
+
+        .sub-drawer-trigger {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            text-align: left;
+            transition: background var(--transition);
+        }
+
+        .sub-drawer-trigger:hover {
+            background: var(--surface-hover);
+        }
+
+        .sub-drawer-badge {
+            width: 32px;
+            height: 32px;
+            flex: none;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .sub-drawer-badge.physics {
+            background: rgba(0, 200, 255, 0.12);
+            color: #38bdf8;
+            border: 1px solid rgba(0, 200, 255, 0.25);
+        }
+
+        .sub-drawer-badge.maths {
+            background: rgba(168, 85, 247, 0.12);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.25);
+        }
+
+        .sub-drawer-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sub-drawer-info h3 {
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .sub-drawer-info p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+
+        .sub-drawer-chevron {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            transition: transform var(--transition), color var(--transition);
+        }
+
+        .sub-drawer.open .sub-drawer-chevron {
+            transform: rotate(180deg);
+            color: var(--gold);
+        }
+
+        .sub-drawer-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .sub-drawer-content {
+            padding: 4px 14px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* ── File Cards with View & Download Actions ────── */
+        .file-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            background: var(--bg);
+            border: 1px solid var(--border);
+            transition: all var(--transition);
+        }
+
+        .file-card:hover {
+            border-color: var(--border-gold);
+            background: var(--surface-hover);
+        }
+
+        .file-card-main {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 0;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .file-card-main:hover .file-link-info h4 {
+            color: var(--gold);
+        }
+
+        .file-link-icon {
+            width: 34px;
+            height: 34px;
+            flex: none;
+            display: grid;
+            place-items: center;
+            border-radius: 6px;
+            background: var(--gold-glow);
+            color: var(--gold);
+            font-size: 0.95rem;
+        }
+
+        .file-link-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .file-link-info h4 {
+            font-size: 0.88rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+            transition: color var(--transition);
+        }
+
+        .rec-pill {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.62rem;
+            font-weight: 800;
+            color: #000;
+            background: var(--gold);
+            padding: 1px 6px;
+            border-radius: 999px;
+            margin-left: 6px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            line-height: 1.3;
+            flex-shrink: 0;
+        }
+
+        .file-link-info p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+
+        .file-card-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            transition: all var(--transition);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .action-btn.btn-view {
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .action-btn.btn-view:hover {
+            color: var(--gold);
+            border-color: var(--border-gold);
+            background: var(--gold-soft);
+        }
+
+        .action-btn.btn-download {
+            background: var(--gold-glow);
+            color: var(--gold);
+            border-color: var(--border-gold);
+        }
+
+        .action-btn.btn-download:hover {
+            background: var(--gold);
+            color: #000;
+        }
+
+        @media (max-width: 480px) {
+            .action-btn span {
+                display: none;
+            }
+            .action-btn {
+                padding: 7px 9px;
+                font-size: 0.85rem;
+            }
+            .file-card {
+                padding: 9px 10px;
+                gap: 8px;
+            }
+        }
+
+        /* ── Footer ─────────────────────────────────────── */
+        .footer {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Mobile Responsive ──────────────────────────── */
+        @media (max-width: 480px) {
+            body {
+                padding: 16px 12px 36px;
+            }
+
+            .main-drawer-trigger {
+                padding: 15px 16px;
+                gap: 12px;
+            }
+
+            .main-drawer-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .main-drawer-info h2 {
+                font-size: 1.02rem;
+            }
+
+            .main-drawer-content {
+                padding: 0 12px 14px;
+                padding-top: 12px;
+            }
+
+            .sub-drawer-trigger {
+                padding: 12px 12px;
+            }
+
+            .file-link {
+                padding: 9px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="shell">
+
+        <!-- Back to Home -->
+        <a href="../" class="back-nav" id="back-home-link">
+            <i class="fas fa-arrow-left"></i> Home
+        </a>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="badge"><i class="fas fa-graduation-cap"></i> Semester 5 Portal</div>
+            <h1>B.Sc. <span>Study Portal</span></h1>
+            <p class="subtitle">Physics & Mathematics — Syllabus, Study Materials & PYQs</p>
+        </header>
+
+        <!-- Semester 5 Notice Box -->
+        <section class="sem-note-card" aria-label="Semester 5 Note">
+            <div class="sem-note-icon"><i class="fas fa-circle-info"></i></div>
+            <div class="sem-note-text">
+                <h4>5th Semester Academic Resources</h4>
+                <p>Curated study collection for <strong>B.Sc. 5th Semester</strong> (Kumaun University). Includes complete syllabi, standard reference textbooks for all 4 papers, and solved previous year question papers (2024–2026).</p>
+            </div>
+        </section>
+
+        <!-- Main Drawers Group (Auto-closes others on open) -->
+        <div class="drawer-group" id="main-drawers">
+
+            <!-- ═══════════ DRAWER 1: SYLLABUS ═══════════ -->
+            <div class="main-drawer" id="drawer-syllabus">
+                <button class="main-drawer-trigger" aria-expanded="false" id="btn-drawer-syllabus">
+                    <div class="main-drawer-icon"><i class="fas fa-scroll"></i></div>
+                    <div class="main-drawer-info">
+                        <h2>Syllabus</h2>
+                        <p>2 files • Mathematics & Physics Syllabus</p>
+                    </div>
+                    <i class="fas fa-chevron-down main-drawer-chevron"></i>
+                </button>
+                <div class="main-drawer-panel">
+                    <div class="main-drawer-content">
+                        <div class="sub-drawer-group">
+                            <div class="file-card">
+                                <a class="file-card-main" href="maths.pdf" target="_blank" rel="noopener noreferrer" id="syllabus-maths-pdf">
+                                    <div class="file-link-icon"><i class="fas fa-square-root-variable"></i></div>
+                                    <div class="file-link-info">
+                                        <h4>Mathematics Syllabus</h4>
+                                        <p>5th Semester Maths Syllabus • maths.pdf</p>
+                                    </div>
+                                </a>
+                                <div class="file-card-actions">
+                                    <a class="action-btn btn-view" href="maths.pdf" target="_blank" rel="noopener noreferrer" title="View Syllabus">
+                                        <i class="fas fa-eye"></i> <span>View</span>
+                                    </a>
+                                    <a class="action-btn btn-download" href="maths.pdf" download="Maths_Semester5_Syllabus.pdf" title="Download Syllabus">
+                                        <i class="fas fa-download"></i> <span>Download</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="file-card">
+                                <a class="file-card-main" href="physics.pdf" target="_blank" rel="noopener noreferrer" id="syllabus-physics-pdf">
+                                    <div class="file-link-icon"><i class="fas fa-atom"></i></div>
+                                    <div class="file-link-info">
+                                        <h4>Physics Syllabus</h4>
+                                        <p>5th Semester Physics Syllabus • physics.pdf</p>
+                                    </div>
+                                </a>
+                                <div class="file-card-actions">
+                                    <a class="action-btn btn-view" href="physics.pdf" target="_blank" rel="noopener noreferrer" title="View Syllabus">
+                                        <i class="fas fa-eye"></i> <span>View</span>
+                                    </a>
+                                    <a class="action-btn btn-download" href="physics.pdf" download="Physics_Semester5_Syllabus.pdf" title="Download Syllabus">
+                                        <i class="fas fa-download"></i> <span>Download</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════ DRAWER 2: STUDY MATERIAL ═══════════ -->
+            <div class="main-drawer" id="drawer-study">
+                <button class="main-drawer-trigger" aria-expanded="false" id="btn-drawer-study">
+                    <div class="main-drawer-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="main-drawer-info">
+                        <h2>Study Material</h2>
+                        <p>4 Subjects • Textbooks & Reference Books</p>
+                    </div>
+                    <i class="fas fa-chevron-down main-drawer-chevron"></i>
+                </button>
+                <div class="main-drawer-panel">
+                    <div class="main-drawer-content">
+                        <!-- 4 Sub-drawers for 4 Papers (Auto-close on opening another) -->
+                        <div class="sub-drawer-group" data-accordion-group="study">
+
+                            <!-- Sub 1: Physics Paper 1 -->
+                            <div class="sub-drawer" id="study-sub-phy1">
+                                <button class="sub-drawer-trigger" aria-expanded="false" id="btn-study-phy1">
+                                    <div class="sub-drawer-badge physics"><i class="fas fa-atom"></i></div>
+                                    <div class="sub-drawer-info">
+                                        <h3>Physics — Paper 1: Physical Optics</h3>
+                                        <p>2 Reference Books</p>
+                                    </div>
+                                    <i class="fas fa-chevron-down sub-drawer-chevron"></i>
+                                </button>
+                                <div class="sub-drawer-panel">
+                                    <div class="sub-drawer-content">
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="https://drive.google.com/file/d/1yS1859nmP1I4JGo-Gz5LcQ4nN0ZmXPTc/view?usp=sharing" target="_blank" rel="noopener noreferrer" id="book-phy1-khandelwal">
+                                                <div class="file-link-icon"><i class="fas fa-book"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>Optics & Atomic Physics</h4>
+                                                    <p>D. P. Khandelwal • Google Drive</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="https://drive.google.com/file/d/1yS1859nmP1I4JGo-Gz5LcQ4nN0ZmXPTc/view?usp=sharing" target="_blank" rel="noopener noreferrer" title="View Book on Google Drive">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="https://drive.google.com/uc?export=download&id=1yS1859nmP1I4JGo-Gz5LcQ4nN0ZmXPTc" target="_blank" rel="noopener noreferrer" title="Download from Google Drive">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="physics-paper-1-physical-optics/physical-optics-krishna-publications.pdf" target="_blank" rel="noopener noreferrer" id="book-phy1-krishna">
+                                                <div class="file-link-icon"><i class="fas fa-book"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>Physical Optics <span class="rec-pill">Recommended</span></h4>
+                                                    <p>Krishna Publications</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="physics-paper-1-physical-optics/physical-optics-krishna-publications.pdf" target="_blank" rel="noopener noreferrer" title="View Book">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="physics-paper-1-physical-optics/physical-optics-krishna-publications.pdf" download="Physical_Optics_Krishna.pdf" title="Download Book">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sub 2: Physics Paper 2 -->
+                            <div class="sub-drawer" id="study-sub-phy2">
+                                <button class="sub-drawer-trigger" aria-expanded="false" id="btn-study-phy2">
+                                    <div class="sub-drawer-badge physics"><i class="fas fa-microchip"></i></div>
+                                    <div class="sub-drawer-info">
+                                        <h3>Physics — Paper 2: Basic Electronics</h3>
+                                        <p>2 Reference Books</p>
+                                    </div>
+                                    <i class="fas fa-chevron-down sub-drawer-chevron"></i>
+                                </button>
+                                <div class="sub-drawer-panel">
+                                    <div class="sub-drawer-content">
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="physics-paper-2-basic-electronics/basic-electronics-s-chand.pdf" target="_blank" rel="noopener noreferrer" id="book-phy2-schand">
+                                                <div class="file-link-icon"><i class="fas fa-book"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>Basic Electronics</h4>
+                                                    <p>S. Chand Publication</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="physics-paper-2-basic-electronics/basic-electronics-s-chand.pdf" target="_blank" rel="noopener noreferrer" title="View Book">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="physics-paper-2-basic-electronics/basic-electronics-s-chand.pdf" download="Basic_Electronics_SChand.pdf" title="Download Book">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="physics-paper-2-basic-electronics/principle-of-electronics-vk-mehta.pdf" target="_blank" rel="noopener noreferrer" id="book-phy2-vkmehta">
+                                                <div class="file-link-icon"><i class="fas fa-book"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>Principle of Electronics <span class="rec-pill">Recommended</span></h4>
+                                                    <p>V. K. Mehta</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="physics-paper-2-basic-electronics/principle-of-electronics-vk-mehta.pdf" target="_blank" rel="noopener noreferrer" title="View Book">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="physics-paper-2-basic-electronics/principle-of-electronics-vk-mehta.pdf" download="Principles_of_Electronics_VKMehta.pdf" title="Download Book">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sub 3: Maths Paper 1 -->
+                            <div class="sub-drawer" id="study-sub-math1">
+                                <button class="sub-drawer-trigger" aria-expanded="false" id="btn-study-math1">
+                                    <div class="sub-drawer-badge maths"><i class="fas fa-shapes"></i></div>
+                                    <div class="sub-drawer-info">
+                                        <h3>Maths — Paper 1: Abstract Algebra</h3>
+                                        <p>2 Reference Books</p>
+                                    </div>
+                                    <i class="fas fa-chevron-down sub-drawer-chevron"></i>
+                                </button>
+                                <div class="sub-drawer-panel">
+                                    <div class="sub-drawer-content">
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="maths-paper-1-abstract-algebra/abstract-algebra-cengage.pdf" target="_blank" rel="noopener noreferrer" id="book-math1-cengage">
+                                                <div class="file-link-icon"><i class="fas fa-book"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>Abstract Algebra</h4>
+                                                    <p>Cengage Learning</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="maths-paper-1-abstract-algebra/abstract-algebra-cengage.pdf" target="_blank" rel="noopener noreferrer" title="View Book">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="maths-paper-1-abstract-algebra/abstract-algebra-cengage.pdf" download="Abstract_Algebra_Cengage.pdf" title="Download Book">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="maths-paper-1-abstract-algebra/abstract-algebra-s-chand.pdf" target="_blank" rel="noopener noreferrer" id="book-math1-schand">
+                                                <div class="file-link-icon"><i class="fas fa-book"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>Abstract Algebra <span class="rec-pill">Recommended</span></h4>
+                                                    <p>S. Chand Publication</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="maths-paper-1-abstract-algebra/abstract-algebra-s-chand.pdf" target="_blank" rel="noopener noreferrer" title="View Book">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="maths-paper-1-abstract-algebra/abstract-algebra-s-chand.pdf" download="Abstract_Algebra_SChand.pdf" title="Download Book">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sub 4: Maths Paper 2 -->
+                            <div class="sub-drawer" id="study-sub-math2">
+                                <button class="sub-drawer-trigger" aria-expanded="false" id="btn-study-math2">
+                                    <div class="sub-drawer-badge maths"><i class="fas fa-calculator"></i></div>
+                                    <div class="sub-drawer-info">
+                                        <h3>Maths — Paper 2: Linear Algebra</h3>
+                                        <p>2 Reference Books</p>
+                                    </div>
+                                    <i class="fas fa-chevron-down sub-drawer-chevron"></i>
+                                </button>
+                                <div class="sub-drawer-panel">
+                                    <div class="sub-drawer-content">
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="maths-paper-2-linear-algebra/linear-algebra-krishna-publication.pdf" target="_blank" rel="noopener noreferrer" id="book-math2-krishna">
+                                                <div class="file-link-icon"><i class="fas fa-book"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>Linear Algebra <span class="rec-pill">Recommended</span></h4>
+                                                    <p>Krishna's Publication (Kumaun Univ.)</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="maths-paper-2-linear-algebra/linear-algebra-krishna-publication.pdf" target="_blank" rel="noopener noreferrer" title="View Book">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="maths-paper-2-linear-algebra/linear-algebra-krishna-publication.pdf" download="Linear_Algebra_Krishna.pdf" title="Download Book">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="maths-paper-2-linear-algebra/linear-algebra-s-chand.pdf" target="_blank" rel="noopener noreferrer" id="book-math2-schand">
+                                                <div class="file-link-icon"><i class="fas fa-book"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>Linear Algebra</h4>
+                                                    <p>S. Chand Publication</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="maths-paper-2-linear-algebra/linear-algebra-s-chand.pdf" target="_blank" rel="noopener noreferrer" title="View Book">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="maths-paper-2-linear-algebra/linear-algebra-s-chand.pdf" download="Linear_Algebra_SChand.pdf" title="Download Book">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════ DRAWER 3: PREVIOUS YEAR QUESTIONS (PYQ) ═══════════ -->
+            <div class="main-drawer" id="drawer-pyq">
+                <button class="main-drawer-trigger" aria-expanded="false" id="btn-drawer-pyq">
+                    <div class="main-drawer-icon"><i class="fas fa-clipboard-question"></i></div>
+                    <div class="main-drawer-info">
+                        <h2>Previous Year Questions</h2>
+                        <p>4 Subjects • 2024–2025 & 2025–2026 Papers</p>
+                    </div>
+                    <i class="fas fa-chevron-down main-drawer-chevron"></i>
+                </button>
+                <div class="main-drawer-panel">
+                    <div class="main-drawer-content">
+                        <!-- 4 Sub-drawers for PYQ (Auto-close on opening another) -->
+                        <div class="sub-drawer-group" data-accordion-group="pyq">
+
+                            <!-- PYQ Sub 1: Physics Paper 1 -->
+                            <div class="sub-drawer" id="pyq-sub-phy1">
+                                <button class="sub-drawer-trigger" aria-expanded="false" id="btn-pyq-phy1">
+                                    <div class="sub-drawer-badge physics"><i class="fas fa-atom"></i></div>
+                                    <div class="sub-drawer-info">
+                                        <h3>Physics — Paper 1: Physical Optics</h3>
+                                        <p>2024–2025 & 2025–2026</p>
+                                    </div>
+                                    <i class="fas fa-chevron-down sub-drawer-chevron"></i>
+                                </button>
+                                <div class="sub-drawer-panel">
+                                    <div class="sub-drawer-content">
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="PYQ/physics-paper-1-physical-optics/2024-2025.pdf" target="_blank" rel="noopener noreferrer" id="pyq-phy1-2024">
+                                                <div class="file-link-icon"><i class="fas fa-file-pdf"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>2024 – 2025 Question Paper</h4>
+                                                    <p>Physical Optics</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="PYQ/physics-paper-1-physical-optics/2024-2025.pdf" target="_blank" rel="noopener noreferrer" title="View Question Paper">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="PYQ/physics-paper-1-physical-optics/2024-2025.pdf" download="Physics_Paper1_PYQ_2024-2025.pdf" title="Download Question Paper">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="PYQ/physics-paper-1-physical-optics/2025-2026.pdf" target="_blank" rel="noopener noreferrer" id="pyq-phy1-2025">
+                                                <div class="file-link-icon"><i class="fas fa-file-pdf"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>2025 – 2026 Question Paper</h4>
+                                                    <p>Physical Optics</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="PYQ/physics-paper-1-physical-optics/2025-2026.pdf" target="_blank" rel="noopener noreferrer" title="View Question Paper">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="PYQ/physics-paper-1-physical-optics/2025-2026.pdf" download="Physics_Paper1_PYQ_2025-2026.pdf" title="Download Question Paper">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PYQ Sub 2: Physics Paper 2 -->
+                            <div class="sub-drawer" id="pyq-sub-phy2">
+                                <button class="sub-drawer-trigger" aria-expanded="false" id="btn-pyq-phy2">
+                                    <div class="sub-drawer-badge physics"><i class="fas fa-microchip"></i></div>
+                                    <div class="sub-drawer-info">
+                                        <h3>Physics — Paper 2: Basic Electronics</h3>
+                                        <p>2024–2025 & 2025–2026</p>
+                                    </div>
+                                    <i class="fas fa-chevron-down sub-drawer-chevron"></i>
+                                </button>
+                                <div class="sub-drawer-panel">
+                                    <div class="sub-drawer-content">
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="PYQ/physics-paper-2-basic-electronics/2024-2025.pdf" target="_blank" rel="noopener noreferrer" id="pyq-phy2-2024">
+                                                <div class="file-link-icon"><i class="fas fa-file-pdf"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>2024 – 2025 Question Paper</h4>
+                                                    <p>Basic Electronics</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="PYQ/physics-paper-2-basic-electronics/2024-2025.pdf" target="_blank" rel="noopener noreferrer" title="View Question Paper">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="PYQ/physics-paper-2-basic-electronics/2024-2025.pdf" download="Physics_Paper2_PYQ_2024-2025.pdf" title="Download Question Paper">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="PYQ/physics-paper-2-basic-electronics/2025-2026.pdf" target="_blank" rel="noopener noreferrer" id="pyq-phy2-2025">
+                                                <div class="file-link-icon"><i class="fas fa-file-pdf"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>2025 – 2026 Question Paper</h4>
+                                                    <p>Basic Electronics</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="PYQ/physics-paper-2-basic-electronics/2025-2026.pdf" target="_blank" rel="noopener noreferrer" title="View Question Paper">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="PYQ/physics-paper-2-basic-electronics/2025-2026.pdf" download="Physics_Paper2_PYQ_2025-2026.pdf" title="Download Question Paper">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PYQ Sub 3: Maths Paper 1 -->
+                            <div class="sub-drawer" id="pyq-sub-math1">
+                                <button class="sub-drawer-trigger" aria-expanded="false" id="btn-pyq-math1">
+                                    <div class="sub-drawer-badge maths"><i class="fas fa-shapes"></i></div>
+                                    <div class="sub-drawer-info">
+                                        <h3>Maths — Paper 1: Abstract Algebra</h3>
+                                        <p>2024–2025 & 2025–2026</p>
+                                    </div>
+                                    <i class="fas fa-chevron-down sub-drawer-chevron"></i>
+                                </button>
+                                <div class="sub-drawer-panel">
+                                    <div class="sub-drawer-content">
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="PYQ/maths-paper-1-abstract-algebra/2024-2025.pdf" target="_blank" rel="noopener noreferrer" id="pyq-math1-2024">
+                                                <div class="file-link-icon"><i class="fas fa-file-pdf"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>2024 – 2025 Question Paper</h4>
+                                                    <p>Abstract Algebra</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="PYQ/maths-paper-1-abstract-algebra/2024-2025.pdf" target="_blank" rel="noopener noreferrer" title="View Question Paper">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="PYQ/maths-paper-1-abstract-algebra/2024-2025.pdf" download="Maths_Paper1_PYQ_2024-2025.pdf" title="Download Question Paper">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="PYQ/maths-paper-1-abstract-algebra/2025-2026.pdf" target="_blank" rel="noopener noreferrer" id="pyq-math1-2025">
+                                                <div class="file-link-icon"><i class="fas fa-file-pdf"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>2025 – 2026 Question Paper</h4>
+                                                    <p>Abstract Algebra</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="PYQ/maths-paper-1-abstract-algebra/2025-2026.pdf" target="_blank" rel="noopener noreferrer" title="View Question Paper">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="PYQ/maths-paper-1-abstract-algebra/2025-2026.pdf" download="Maths_Paper1_PYQ_2025-2026.pdf" title="Download Question Paper">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PYQ Sub 4: Maths Paper 2 -->
+                            <div class="sub-drawer" id="pyq-sub-math2">
+                                <button class="sub-drawer-trigger" aria-expanded="false" id="btn-pyq-math2">
+                                    <div class="sub-drawer-badge maths"><i class="fas fa-calculator"></i></div>
+                                    <div class="sub-drawer-info">
+                                        <h3>Maths — Paper 2: Linear Algebra</h3>
+                                        <p>2024–2025 & 2025–2026</p>
+                                    </div>
+                                    <i class="fas fa-chevron-down sub-drawer-chevron"></i>
+                                </button>
+                                <div class="sub-drawer-panel">
+                                    <div class="sub-drawer-content">
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="PYQ/maths-paper-2-linear-algebra/2024-2025.pdf" target="_blank" rel="noopener noreferrer" id="pyq-math2-2024">
+                                                <div class="file-link-icon"><i class="fas fa-file-pdf"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>2024 – 2025 Question Paper</h4>
+                                                    <p>Linear Algebra</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="PYQ/maths-paper-2-linear-algebra/2024-2025.pdf" target="_blank" rel="noopener noreferrer" title="View Question Paper">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="PYQ/maths-paper-2-linear-algebra/2024-2025.pdf" download="Maths_Paper2_PYQ_2024-2025.pdf" title="Download Question Paper">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="file-card">
+                                            <a class="file-card-main" href="PYQ/maths-paper-2-linear-algebra/2025-2026.pdf" target="_blank" rel="noopener noreferrer" id="pyq-math2-2025">
+                                                <div class="file-link-icon"><i class="fas fa-file-pdf"></i></div>
+                                                <div class="file-link-info">
+                                                    <h4>2025 – 2026 Question Paper</h4>
+                                                    <p>Linear Algebra</p>
+                                                </div>
+                                            </a>
+                                            <div class="file-card-actions">
+                                                <a class="action-btn btn-view" href="PYQ/maths-paper-2-linear-algebra/2025-2026.pdf" target="_blank" rel="noopener noreferrer" title="View Question Paper">
+                                                    <i class="fas fa-eye"></i> <span>View</span>
+                                                </a>
+                                                <a class="action-btn btn-download" href="PYQ/maths-paper-2-linear-algebra/2025-2026.pdf" download="Maths_Paper2_PYQ_2025-2026.pdf" title="Download Question Paper">
+                                                    <i class="fas fa-download"></i> <span>Download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <p><a href="../">vaibbhubb.in</a> • Personal Academic Library</p>
+        </footer>
+
+    </main>
+
+    <script>
+        // Play the Semester 5 audio after any user click on this page.
+        const semesterAudio = new Audio('../assets/tonight7.mp3');
+        semesterAudio.preload = 'auto';
+
+        document.addEventListener('click', () => {
+            if (semesterAudio.ended) {
+                semesterAudio.currentTime = 0;
+            }
+            semesterAudio.play().catch(() => {});
+        });
+
+        // ── Helper to close an accordion element smoothly ──
+        function closeAccordion(el, panel, trigger) {
+            if (!el.classList.contains('open')) return;
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+            requestAnimationFrame(() => {
+                panel.style.maxHeight = '0';
+            });
+            el.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+        }
+
+        // ── Helper to open an accordion element smoothly ──
+        function openAccordion(el, panel, trigger, parentPanel = null) {
+            el.classList.add('open');
+            trigger.setAttribute('aria-expanded', 'true');
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+
+            panel.addEventListener('transitionend', function handler() {
+                if (el.classList.contains('open')) {
+                    panel.style.maxHeight = 'none';
+                }
+                if (parentPanel) {
+                    parentPanel.style.maxHeight = 'none';
+                }
+                panel.removeEventListener('transitionend', handler);
+            });
+
+            if (parentPanel) {
+                parentPanel.style.maxHeight = 'none';
+            }
+        }
+
+        // ── 1. Top-Level Drawers Accordion (Auto-Close Others) ──
+        const allMainDrawers = Array.from(document.querySelectorAll('.main-drawer'));
+
+        allMainDrawers.forEach(drawer => {
+            const trigger = drawer.querySelector('.main-drawer-trigger');
+            const panel = drawer.querySelector('.main-drawer-panel');
+
+            trigger.addEventListener('click', () => {
+                const isOpen = drawer.classList.contains('open');
+
+                // Close all other top-level drawers automatically
+                allMainDrawers.forEach(otherDrawer => {
+                    if (otherDrawer !== drawer && otherDrawer.classList.contains('open')) {
+                        const oTrigger = otherDrawer.querySelector('.main-drawer-trigger');
+                        const oPanel = otherDrawer.querySelector('.main-drawer-panel');
+                        closeAccordion(otherDrawer, oPanel, oTrigger);
+                    }
+                });
+
+                if (isOpen) {
+                    closeAccordion(drawer, panel, trigger);
+                } else {
+                    openAccordion(drawer, panel, trigger);
+                }
+            });
+        });
+
+        // ── 2. Sub-Drawers Accordion (Auto-Close Siblings in same group) ──
+        const subDrawerGroups = document.querySelectorAll('.sub-drawer-group[data-accordion-group]');
+
+        subDrawerGroups.forEach(group => {
+            const subDrawers = Array.from(group.querySelectorAll('.sub-drawer'));
+            const parentPanel = group.closest('.main-drawer-panel');
+
+            subDrawers.forEach(sub => {
+                const trigger = sub.querySelector('.sub-drawer-trigger');
+                const panel = sub.querySelector('.sub-drawer-panel');
+
+                trigger.addEventListener('click', () => {
+                    const isOpen = sub.classList.contains('open');
+
+                    // Close sibling sub-drawers within the same group
+                    subDrawers.forEach(otherSub => {
+                        if (otherSub !== sub && otherSub.classList.contains('open')) {
+                            const oTrigger = otherSub.querySelector('.sub-drawer-trigger');
+                            const oPanel = otherSub.querySelector('.sub-drawer-panel');
+                            closeAccordion(otherSub, oPanel, oTrigger);
+                        }
+                    });
+
+                    if (isOpen) {
+                        closeAccordion(sub, panel, trigger);
+                    } else {
+                        openAccordion(sub, panel, trigger, parentPanel);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
