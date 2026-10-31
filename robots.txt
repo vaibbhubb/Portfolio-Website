@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow non-public utility pages
+Disallow: /5/
+Disallow: /analytics/
+Disallow: /clg/
+
+Sitemap: https://vaibbhubb.in/sitemap.xml
