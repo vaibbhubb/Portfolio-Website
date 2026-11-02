@@ -21,6 +21,14 @@ jobs:
         env:
           GOATCOUNTER_API_KEY: ${{ secrets.GOATCOUNTER_API_KEY }}
         run: |
+          # Bail out gracefully if the API key is missing (secrets can
+          # intermittently fail to inject on scheduled runs).
+          if [ -z "$GOATCOUNTER_API_KEY" ]; then
+            echo "::warning::GOATCOUNTER_API_KEY secret is not set or empty – skipping this run."
+            echo "SKIP_COMMIT=true" >> "$GITHUB_ENV"
+            exit 0
+          fi
+
           START_DATE="2026-08-27"
           END_DATE=$(date +%Y-%m-%d)
           API_URL="https://vaibbhubb.goatcounter.com/api/v0/stats/hits?start=${START_DATE}&end=${END_DATE}&limit=100"
@@ -40,25 +48,28 @@ jobs:
             "${API_URL}")
 
           if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
-            echo "::error::GoatCounter API returned HTTP ${HTTP_CODE}"
+            echo "::warning::GoatCounter API returned HTTP ${HTTP_CODE} – skipping update."
             echo "Response body:"
             cat /tmp/gc_response.json || true
-            exit 1
+            echo "SKIP_COMMIT=true" >> "$GITHUB_ENV"
+            exit 0
           fi
 
           RESPONSE=$(cat /tmp/gc_response.json)
 
           if [ -z "$RESPONSE" ]; then
-            echo "::error::Received empty response from GoatCounter API"
-            exit 1
+            echo "::warning::Received empty response from GoatCounter API – skipping update."
+            echo "SKIP_COMMIT=true" >> "$GITHUB_ENV"
+            exit 0
           fi
 
           # Validate JSON
           if ! echo "$RESPONSE" | jq empty 2>/dev/null; then
-            echo "::error::GoatCounter API returned invalid JSON"
+            echo "::warning::GoatCounter API returned invalid JSON – skipping update."
             echo "Response body:"
             echo "$RESPONSE"
-            exit 1
+            echo "SKIP_COMMIT=true" >> "$GITHUB_ENV"
+            exit 0
           fi
 
           # Write data.json
@@ -75,6 +86,7 @@ jobs:
           echo "Done! ${TOTAL} total views across ${PAGES} pages."
 
       - name: Commit and push if changed
+        if: env.SKIP_COMMIT != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

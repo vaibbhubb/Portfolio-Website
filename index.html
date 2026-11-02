@@ -6,26 +6,26 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaibhav Gupta | Portfolio — vaibbhubb.in</title>
-    <meta name="description" content="Portfolio of Vaibhav Gupta (vaibbhubb) — a B.Sc. student passionate about mathematics, technology, chess, and web development. Explore my projects, hobbies, and AI chatbot.">
+    <title>vaibbhubb | Vaibhav Gupta — Official Portfolio & Website</title>
+    <meta name="description" content="Official personal website of vaibbhubb (Vaibhav Gupta) — exploring mathematics, technology, chess, web development, and AI. Connect, explore projects, and chat with AI Vaibhav.">
     <meta name="author" content="Vaibhav Gupta">
-    <meta name="keywords" content="Vaibhav Gupta, vaibbhubb, portfolio, mathematics, chess, web development, AI chatbot, B.Sc., India">
+    <meta name="keywords" content="vaibbhubb, vaibbhubb.in, Vaibhav Gupta, vaibbhubb portfolio, mathematics, chess, web development, AI chatbot, B.Sc.">
     <link rel="canonical" href="https://vaibbhubb.in/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vaibbhubb.in/">
-    <meta property="og:title" content="Vaibhav Gupta | Portfolio — vaibbhubb.in">
-    <meta property="og:description" content="Portfolio of Vaibhav Gupta (vaibbhubb) — a B.Sc. student passionate about mathematics, technology, chess, and web development.">
+    <meta property="og:title" content="vaibbhubb | Vaibhav Gupta — Official Portfolio & Website">
+    <meta property="og:description" content="Official personal website of vaibbhubb (Vaibhav Gupta) — exploring mathematics, technology, chess, web development, and AI.">
     <meta property="og:image" content="https://vaibbhubb.in/images/profile.png">
-    <meta property="og:site_name" content="vaibbhubb.in">
+    <meta property="og:site_name" content="vaibbhubb">
     <meta property="og:locale" content="en_IN">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://vaibbhubb.in/">
-    <meta name="twitter:title" content="Vaibhav Gupta | Portfolio — vaibbhubb.in">
-    <meta name="twitter:description" content="Portfolio of Vaibhav Gupta (vaibbhubb) — a B.Sc. student passionate about mathematics, technology, chess, and web development.">
+    <meta name="twitter:title" content="vaibbhubb | Vaibhav Gupta — Official Portfolio & Website">
+    <meta name="twitter:description" content="Official personal website of vaibbhubb (Vaibhav Gupta) — exploring mathematics, technology, chess, web development, and AI.">
     <meta name="twitter:image" content="https://vaibbhubb.in/images/profile.png">
 
     <!-- Preconnect for performance -->
@@ -37,24 +37,42 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD Structured Data: WebSite (Google Site Name) & Person -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Vaibhav Gupta",
-      "alternateName": "vaibbhubb",
-      "url": "https://vaibbhubb.in",
-      "image": "https://vaibbhubb.in/images/profile.png",
-      "email": "vaibhavgupta97600@gmail.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/vaibbhubb/",
-        "https://github.com/vaibbhubb",
-        "https://instagram.com/vaibbhubb",
-        "https://t.me/vaibbhubb"
-      ],
-      "jobTitle": "B.Sc. Student & Web Developer",
-      "description": "B.Sc. student passionate about mathematics, technology, chess, and web development."
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://vaibbhubb.in/#website",
+          "url": "https://vaibbhubb.in/",
+          "name": "vaibbhubb",
+          "alternateName": ["vaibbhubb.in", "Vaibhav Gupta", "Vaibhav Gupta Portfolio"],
+          "publisher": {
+            "@id": "https://vaibbhubb.in/#person"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://vaibbhubb.in/#person",
+          "name": "Vaibhav Gupta",
+          "alternateName": "vaibbhubb",
+          "url": "https://vaibbhubb.in/",
+          "image": "https://vaibbhubb.in/images/profile.png",
+          "email": "vaibhavgupta97600@gmail.com",
+          "sameAs": [
+            "https://www.linkedin.com/in/vaibbhubb/",
+            "https://github.com/vaibbhubb",
+            "https://instagram.com/vaibbhubb",
+            "https://t.me/vaibbhubb",
+            "https://www.chess.com/member/vaibbhubb",
+            "https://wa.me/919068846022"
+          ],
+          "jobTitle": "B.Sc. Student & Web Developer",
+          "description": "Vaibhav Gupta (vaibbhubb) — B.Sc. student passionate about mathematics, technology, chess, and web development."
+        }
+      ]
     }
     </script>
 </head>
@@ -62,7 +80,7 @@
 <body>
 
     <nav>
-        <a href="./" class="logo">vaibbhubb<span>.in</span></a>
+        <a href="./" class="logo" aria-label="vaibbhubb.in home">vaibbhubb<span>.in</span></a>
     </nav>
 
     <section class="hero-container">
@@ -74,9 +92,9 @@
             <h3>And I'm a <span id="typewriter-text"></span><span class="cursor"></span></h3>
 
             <p>
+                Welcome to the official portfolio of <strong>Vaibhav Gupta</strong> (known online as <strong>vaibbhubb</strong>).
                 I am a passionate individual currently pursuing my second year in Bachelors Of Science Programme.
                 I love to explore new technologies, manage accounts, and analyze data to find meaningful insights.
-                Welcome to my personal portfolio.
             </p>
 
             <div class="socials-container">
@@ -162,6 +180,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 <strong>vaibbhubb</strong> (Vaibhav Gupta). All rights reserved.</p>
+        <p class="footer-links">
+            <a href="https://github.com/vaibbhubb" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a> &bull;
+            <a href="https://www.linkedin.com/in/vaibbhubb/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a> &bull;
+            <a href="connect/">Connect</a>
+        </p>
+    </footer>
 
     <script src="script.js"></script>
 
