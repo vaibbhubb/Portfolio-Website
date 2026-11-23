@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Exercise — vaibbhubb</title>
+    <meta name="description" content="Vaibhav's weekly workout schedule with exercises, sets and reps for each day.">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            width: 100%;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #0f0f0f;
+            border-bottom: 1px solid rgba(0, 210, 255, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #00d2ff;
+        }
+
+        .nav-back {
+            font-size: 13px;
+            color: #888;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .nav-back:hover {
+            color: #00d2ff;
+        }
+
+        /* ===== PAGE TITLE ===== */
+        .page-title-bar {
+            text-align: center;
+            padding: 24px 16px 10px;
+        }
+
+        .page-title-bar h1 {
+            font-size: clamp(1.4rem, 5vw, 2rem);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .page-title-bar h1 span {
+            color: #00d2ff;
+        }
+
+        /* ===== DAY TABS (Sticky header) ===== */
+        .day-tabs-wrapper {
+            position: sticky;
+            top: 57px; /* below the nav */
+            z-index: 100;
+            background: #0f0f0f;
+            padding: 10px 0 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .day-tabs {
+            display: flex;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            gap: 6px;
+            padding: 0 12px 10px;
+        }
+
+        .day-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .day-tab {
+            flex-shrink: 0;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid rgba(0, 210, 255, 0.3);
+            background: transparent;
+            color: #aaa;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .day-tab:hover {
+            border-color: #00d2ff;
+            color: #00d2ff;
+        }
+
+        .day-tab.active {
+            background: #00d2ff;
+            border-color: #00d2ff;
+            color: #0f0f0f;
+            box-shadow: 0 0 14px rgba(0, 210, 255, 0.5);
+        }
+
+        /* ===== DAY PANELS ===== */
+        .day-panels {
+            padding: 24px 16px 60px;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .day-panel {
+            display: none;
+        }
+
+        .day-panel.active {
+            display: block;
+        }
+
+        /* ===== EXERCISE CARD ===== */
+        .exercise-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 16px;
+            padding: 14px;
+            margin-bottom: 16px;
+            transition: border-color 0.25s, transform 0.2s;
+            cursor: default;
+        }
+
+        .exercise-card:hover {
+            border-color: rgba(0, 210, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Exercise image box */
+        .ex-img-wrap {
+            flex-shrink: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ex-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Placeholder when no image yet */
+        .ex-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(0,210,255,0.3);
+            font-size: 2rem;
+        }
+
+        /* Exercise info */
+        .ex-info {
+            flex: 1;
+        }
+
+        .ex-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .ex-reps {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            border-radius: 999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #00d2ff;
+            letter-spacing: 0.04em;
+        }
+
+        .ex-reps i {
+            font-size: 10px;
+        }
+
+        /* ===== "COMING SOON" for other days ===== */
+        .coming-soon {
+            text-align: center;
+            padding: 60px 20px;
+            color: #555;
+        }
+
+        .coming-soon i {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: block;
+            color: rgba(0,210,255,0.3);
+        }
+
+        .coming-soon p {
+            font-size: 15px;
+        }
+
+        /* ===== DAY LABEL INSIDE PANEL ===== */
+        .day-label {
+            font-size: clamp(1.6rem, 7vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 0.04em;
+            color: #fff;
+        }
+
+        .day-label span {
+            color: #00d2ff;
+        }
+
+        /* ===== BACK LINK ===== */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+            margin: 20px auto 0;
+            display: block;
+            text-align: center;
+        }
+
+        .back-link:hover {
+            color: #00d2ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAV ===== -->
+    <nav>
+        <a href="../" class="logo">vaibbhubb<span>.in</span></a>
+        <a href="../" class="nav-back"><i class="fas fa-arrow-left"></i> Home</a>
+    </nav>
+
+    <!-- ===== PAGE TITLE ===== -->
+    <div class="page-title-bar">
+        <h1>My <span>Exercise</span> Log</h1>
+    </div>
+
+    <!-- ===== DAY TABS ===== -->
+    <div class="day-tabs-wrapper">
+        <div class="day-tabs" id="dayTabs">
+            <button class="day-tab active" data-day="monday">Monday</button>
+            <button class="day-tab" data-day="tuesday">Tuesday</button>
+            <button class="day-tab" data-day="wednesday">Wednesday</button>
+            <button class="day-tab" data-day="thursday">Thursday</button>
+            <button class="day-tab" data-day="friday">Friday</button>
+            <button class="day-tab" data-day="saturday">Saturday</button>
+        </div>
+    </div>
+
+    <!-- ===== DAY PANELS ===== -->
+    <div class="day-panels">
+
+        <!-- MONDAY -->
+        <div class="day-panel active" id="panel-monday">
+            <div class="day-label">Mon<span>day</span></div>
+
+            <!--
+                =====================================================
+                  MONDAY EXERCISES — add cards below following pattern
+                =====================================================
+            -->
+
+            <!-- EXERCISE CARD TEMPLATE:
+            <div class="exercise-card">
+                <div class="ex-img-wrap">
+                    <img src="../images/exercise/YOUR_IMAGE.jpg" alt="Exercise Name">
+                </div>
+                <div class="ex-info">
+                    <div class="ex-name">Exercise Name</div>
+                    <div class="ex-reps"><i class="fas fa-fire"></i> 3 sets × 12 reps</div>
+                </div>
+            </div>
+            -->
+
+            <!-- PLACEHOLDER — waiting for your exercise list & images -->
+            <div class="coming-soon">
+                <i class="fas fa-dumbbell"></i>
+                <p>Monday exercises coming soon.<br>Drop your list &amp; images and I'll map them here!</p>
+            </div>
+
+        </div><!-- /monday -->
+
+        <!-- TUESDAY -->
+        <div class="day-panel" id="panel-tuesday">
+            <div class="day-label">Tues<span>day</span></div>
+            <div class="coming-soon">
+                <i class="fas fa-dumbbell"></i>
+                <p>Tuesday exercises — coming soon.</p>
+            </div>
+        </div>
+
+        <!-- WEDNESDAY -->
+        <div class="day-panel" id="panel-wednesday">
+            <div class="day-label">Wednes<span>day</span></div>
+            <div class="coming-soon">
+                <i class="fas fa-dumbbell"></i>
+                <p>Wednesday exercises — coming soon.</p>
+            </div>
+        </div>
+
+        <!-- THURSDAY -->
+        <div class="day-panel" id="panel-thursday">
+            <div class="day-label">Thurs<span>day</span></div>
+            <div class="coming-soon">
+                <i class="fas fa-dumbbell"></i>
+                <p>Thursday exercises — coming soon.</p>
+            </div>
+        </div>
+
+        <!-- FRIDAY -->
+        <div class="day-panel" id="panel-friday">
+            <div class="day-label">Fri<span>day</span></div>
+            <div class="coming-soon">
+                <i class="fas fa-dumbbell"></i>
+                <p>Friday exercises — coming soon.</p>
+            </div>
+        </div>
+
+        <!-- SATURDAY -->
+        <div class="day-panel" id="panel-saturday">
+            <div class="day-label">Satur<span>day</span></div>
+            <div class="coming-soon">
+                <i class="fas fa-dumbbell"></i>
+                <p>Saturday exercises — coming soon.</p>
+            </div>
+        </div>
+
+        <a href="../" class="back-link"><i class="fas fa-home"></i> Back to Home</a>
+    </div>
+
+    <!-- ===== JS: Tab switching ===== -->
+    <script>
+        const tabs = document.querySelectorAll('.day-tab');
+        const panels = document.querySelectorAll('.day-panel');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active from all
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+
+                // Activate clicked tab
+                tab.classList.add('active');
+                const day = tab.getAttribute('data-day');
+                document.getElementById('panel-' + day).classList.add('active');
+
+                // Scroll the tab into view (for mobile overflow)
+                tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
